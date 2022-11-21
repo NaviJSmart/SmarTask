@@ -1,0 +1,38 @@
+@import "../../styles/variables";
+
+.Header {
+  background-color: $bg-element;
+  height: 6rem;
+  &__logo {
+   
+    min-width: 300px;
+    
+    a {
+      text-decoration: none;
+      color: $black;
+    }
+  }
+  &__container {
+    max-width: $container;
+    
+    margin: auto;
+    padding: 0 20px;
+    padding-top: 1rem;
+    display: flex;
+    align-items: center;
+    
+  }
+  &__section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    &_menu {
+        
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+  }
+}

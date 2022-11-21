@@ -1,0 +1,21 @@
+@import "../../styles/variables";
+
+.InputSearch {
+  position: relative;
+  
+  min-width: 310px;
+ 
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translate(-50%, -50%);
+  }
+  input {
+    padding: 0.5rem 2.5rem;
+    border: none;
+    border-radius: 15px;
+    width: 100%;
+    background-color: $bg-color;
+  }
+}
