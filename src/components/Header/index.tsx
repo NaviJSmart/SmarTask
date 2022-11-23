@@ -5,7 +5,7 @@ import "./Header.scss";
 
 const Header = (): JSX.Element => {
   return (
-    <div className="Header">
+    <header className="Header">
       <div className="Header__container">
         <h1 className="Header__logo">
           <a href="#">Smartask</a>
@@ -19,7 +19,7 @@ const Header = (): JSX.Element => {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

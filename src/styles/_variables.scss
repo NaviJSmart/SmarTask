@@ -2,12 +2,15 @@
 $font-12: 0.75rem;
 $font-13: 0.8125rem;
 $font-14: 0.875rem;
-$font-15: 0.9375rem; 
+$font-15: 0.9375rem;
 $font-16: 1rem;
-$font-18: 1.125rem; 
+$font-18: 1.125rem;
 $font-19: 1.1875rem;
-$font-23: 1.4375rem; 
-$font-30: 1.875rem; 
+$font-23: 1.4375rem;
+$font-26: 1.625rem;
+$font-30: 1.875rem;
+$font-32: 2rem;
+$font-35: 2.2rem;
 //font-weight
 $font-regular: 400;
 $font-medium: 500;
@@ -15,19 +18,25 @@ $font-bold: 600;
 // colors
 $black: #000000;
 $white: #ffffff;
-$red:#EA5555;
-$blue: #2A85FF;
-$veryLightBlue:#f0effa;
-$lightBlue: #A8A4FF;
-$gray: #8794A7;
-$lightGray: #F4F7FD;
-// margins 
-$margin-tiny: .5rem;
+$red: #ea5555;
+$blue: #2a85ff;
+$veryLightBlue: #f0effa;
+$lightBlue: #a8a4ff;
+$gray: #8794a7;
+$lightGray: #f4f7fd;
+
+// margins
+$margin-tiny: 0.5rem;
 $margin-small: 1rem;
-$margin-medium: 1.5rem;   
-$margin-large: 2rem; 
+$margin-medium: 1.5rem;
+$margin-large: 2rem;
 // bg-colrs
-$bg-element: #FCFCFC;
-$bg-color: #F4F4F4;
+$bg-element: #fcfcfc;
+$bg-color: #f4f4f4;
 // device width
 $container: 1440px;
+//MIXIN
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+}
