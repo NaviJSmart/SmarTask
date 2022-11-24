@@ -40,3 +40,20 @@ $container: 1440px;
   display: flex;
   align-items: center;
 }
+
+@mixin buttonWithSVG {
+  @include flexCenter;
+  position: relative;
+
+  svg {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+  }
+  button {
+    background: transparent;
+    border: none;
+    padding: 0 2rem;
+    cursor: pointer;
+  }
+}

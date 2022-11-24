@@ -1,0 +1,20 @@
+@import '../../styles/variables';
+
+.CreateBoard {
+    text-align: center;
+    margin-top: $margin-medium;
+    button {
+      background: transparent;
+      border: none;
+      font-size: $font-18;
+      cursor: pointer;
+      padding: $margin-tiny $margin-medium;
+      border-radius: 1rem;
+      transition: all 0.2s;
+      &:hover {
+        color: $white;
+        background-color: $blue;
+        opacity: .4;
+      }
+    }
+}

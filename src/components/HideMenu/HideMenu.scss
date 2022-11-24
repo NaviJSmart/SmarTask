@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+
+.HideMenu {
+  @include buttonWithSVG;
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+  button {
+    color: gray;
+    font-size: 1rem;
+  }
+}

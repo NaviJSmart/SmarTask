@@ -3,9 +3,10 @@
 .Sidebar {
   position: fixed;
   height: calc(100% - 6rem);
-  width: 300px;
+  width: 18.75rem;
   background-color: $bg-element;
   padding: $margin-medium;
+  transition: all 0.4s;
   &__navigation {
     margin-bottom: $margin-tiny;
     @include flexCenter;
@@ -25,68 +26,16 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    &_button {
-      text-align: center;
-      margin-top: $margin-medium;
-      button {
-        background: transparent;
-        border: none;
-        font-size: $font-18;
-        cursor: pointer;
-        padding: $margin-tiny $margin-small;
-        border-radius: 1rem;
-        transition: all 0.3s;
-        &:hover {
-          background-color: $bg-color;
-        }
-      }
-    }
+
     &_features {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0.6rem;
+      gap: 1rem;
     }
   }
-  &__menu_items {
-    li {
-      position: relative;
-      list-style: none;
-      margin-bottom: 0.4rem;
-      
 
-    //   &:hover {
-          
-    //     &::after {
-    //       content: "";
-    //       position: absolute;
-    //       top: -0.5rem;
-    //       left: -24px;
-    //       z-index: -2;
-    //       width: 235px;
-    //       height: 40px;
-    //       border-radius: 0 15px 15px 0;
-    //       background-color: rgb(113, 113, 254);
-    //     }
-    //   }
-      a {
-        text-decoration: none;
-        color: $gray;
-        line-height: 1.5;
-      }
-    }
-  }
-}
-.Sidebar__hide {
-  color: #8794a7;
-}
-
-.menu_bottom {
-  @include flexCenter;
-  gap: 0.6rem;
-  cursor: pointer;
-  svg {
-    width: 18px;
-    height: 18px;
+  &.hide {
+    transform: translateX(-100%);
   }
 }

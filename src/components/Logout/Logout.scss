@@ -1,0 +1,8 @@
+@import "../../styles/variables";
+
+.Logout {
+  @include buttonWithSVG;
+  button {
+    font-size: 1rem;
+  }
+}

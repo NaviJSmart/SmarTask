@@ -1,42 +1,49 @@
 import "./Sidebar.scss";
-import { ReactComponent as Board } from "../../assets/board.svg";
-import { ReactComponent as Hide } from "../../assets/hide.svg";
-import { ReactComponent as Logout } from "../../assets/logout.svg";
+import { ReactComponent as BoardSVG } from "../../assets/board.svg";
+import Logout from "../Logout";
+import HideMenu from "../HideMenu";
+import { useState } from "react";
+import CreateBoard from "../CreateBoardButton";
+import ShowMenu from "../ShowMenu";
+import BoardItem from "../BoardItem";
+
+const data = [
+  { id: "lala123", name: "UI/UX Desing" },
+  { id: "lala235", name: "Web Application" },
+  {
+    id: "laga423",
+    name: "Project Tesla dfsdfsdfsd fsdfsdfdsfsdfsd sdfdsfsdfdsf sdfsdfsdfsd sdfsdf sdfdsfsdfdsfdsfsdfdssfsdfdsf",
+  },
+];
 const Sidebar = () => {
+  const [isHide, setIsHide] = useState(false);
+  const [selected, setSelected] = useState<string | null>(null);
   return (
-    <nav className="Sidebar">
+    <nav className={`Sidebar ${isHide ? "hide" : ""}`}>
       <div className="Sidebar__menu">
         <div className="Sidebar__menu_nav">
           <a href="#" className="Sidebar__navigation">
-            <Board />
+            <BoardSVG />
             <p>Dashboards</p>
           </a>
           <ul className="Sidebar__menu_items">
-            <li>
-              <a href="#">UI/UX Desing</a>
-            </li>
-            <li>
-              <a href="#">Web Application</a>
-            </li>
-            <li>
-              <a href="#">Project R</a>
-            </li>
+            {data.map((item: any) => (
+              <BoardItem
+                key={item.id}
+                {...item}
+                setSelected={setSelected}
+                selected={selected}
+              />
+            ))}
           </ul>
-          <div className="Sidebar__menu_button">
-            <button>+Create New Board</button>
-          </div>
+          <CreateBoard />
         </div>
         <div className="Sidebar__menu_features">
-          <div className="Sidebar__hide menu_bottom">
-            <Hide />
-            <p>Hide Menu</p>
-          </div>
-          <div className="Sidebar__logout menu_bottom">
-            <Logout />
-            <p>Logout</p>
-          </div>
+          <HideMenu onHide={setIsHide} isHide={isHide} />
+          <Logout />
         </div>
       </div>
+      {isHide && <ShowMenu onHide={setIsHide} />}
     </nav>
   );
 };

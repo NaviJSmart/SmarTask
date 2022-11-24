@@ -1,0 +1,25 @@
+@import "../../styles/variables";
+
+.ShowMenu {
+  button {
+    transition: all .3s;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 2rem;
+    right: -70px;
+    width: 70px;
+    height: 50px;
+    background-color: $blue;
+    border-radius: 0 15px 15px 0;
+    svg {
+      fill: $white;
+    }
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
