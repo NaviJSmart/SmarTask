@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+.Logo {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  min-width: 18.75rem;
+  border-right: 2px solid $bg-color;
+  a {
+    font-size: $font-30;
+    text-decoration: none;
+    color: $black;
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 1.5rem;
+      left: 6rem;
+      width: 130px;
+      height: 5px;
+      background-color: $blue;
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      bottom: 1.5rem;
+      right: 6rem;
+      width: 130px;
+      height: 5px;
+      background-color: $blue;
+    }
+  }
+}

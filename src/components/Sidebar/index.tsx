@@ -6,6 +6,15 @@ import { useState } from "react";
 import CreateBoard from "../CreateBoardButton";
 import ShowMenu from "../ShowMenu";
 import BoardItem from "../BoardItem";
+import InputToggle from "../InputToggle";
+import { useAppSelector } from "../../hooks/redux";
+
+interface SideBarProps {
+  setSelected: React.Dispatch<
+    React.SetStateAction<{ id: string; name: string } | null>
+  >;
+  selected: { id: string; name: string } | null;
+}
 
 const data = [
   { id: "lala123", name: "UI/UX Desing" },
@@ -15,9 +24,9 @@ const data = [
     name: "Project Tesla dfsdfsdfsd fsdfsdfdsfsdfsd sdfdsfsdfdsf sdfsdfsdfsd sdfsdf sdfdsfsdfdsfdsfsdfdssfsdfdsf",
   },
 ];
-const Sidebar = () => {
-  const [isHide, setIsHide] = useState(false);
-  const [selected, setSelected] = useState<string | null>(null);
+const Sidebar = ({ selected, setSelected }: SideBarProps) => {
+  const { isHide } = useAppSelector((state) => state.menuToggle);
+
   return (
     <nav className={`Sidebar ${isHide ? "hide" : ""}`}>
       <div className="Sidebar__menu">
@@ -39,11 +48,11 @@ const Sidebar = () => {
           <CreateBoard />
         </div>
         <div className="Sidebar__menu_features">
-          <HideMenu onHide={setIsHide} isHide={isHide} />
-          <Logout />
+          <InputToggle />
+          <HideMenu />
         </div>
       </div>
-      {isHide && <ShowMenu onHide={setIsHide} />}
+      {isHide && <ShowMenu />}
     </nav>
   );
 };

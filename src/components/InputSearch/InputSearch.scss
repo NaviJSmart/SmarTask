@@ -2,9 +2,8 @@
 
 .InputSearch {
   position: relative;
-  
   min-width: 310px;
- 
+  transition: all .3s ease;
   svg {
     position: absolute;
     top: 50%;
@@ -17,5 +16,24 @@
     border-radius: 15px;
     width: 100%;
     background-color: $bg-color;
+  }
+  @include desktop {
+    // min-width: 2rem;
+    // // width: 100%;
+    // input {
+    //   width: 0;
+    //   padding: 0.5rem 0;
+    // }
+    // &.activeInput {
+      
+    //   input {
+    //     width: 100%;
+    //     padding: 0.5rem 2rem;
+    //   }
+    // }
+  }
+  @include tablet {
+    
+   
   }
 }

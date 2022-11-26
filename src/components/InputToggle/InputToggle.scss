@@ -27,20 +27,23 @@
   -moz-appearance: none;
   appearance: none;
   &::after {
-    content: "";
-
+    content: url('../../assets/moon.svg');
+    text-align: center;
+    line-height: 30px;
     display: inline-block;
     position: absolute;
-    left: 2.9px;
-    top: 1.3px;
-    width: 25px;
-    height: 25px;
+    left: 3.8px;
+    top: 1.6px;
+    width: 24px;
+    height: 24px;
     background-color: #FCFCFC;
     border-radius: 50%;
     transform: translateX(0);
     transition: all 0.3s cubic-bezier(0.2, 0.85, 0.32, 1.2);
   }
   &:checked::after {
+    content: url('../../assets/sun.svg');
+    line-height: 33px;
     transform: translateX(calc(100% + 3px));
     background-color: #FCFCFC;  
   }

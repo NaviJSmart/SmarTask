@@ -3,14 +3,15 @@ import "./BoardItem.scss";
 interface BoardItemProps {
   id: string;
   name: string;
-  setSelected: React.Dispatch<React.SetStateAction<string | null>>;
-  selected: string | null;
+  setSelected: React.Dispatch<React.SetStateAction<{} | null>>;
+  selected: {id: string;
+    name: string;};
 }
-const BoardItem = ({ id, name, setSelected, selected }: BoardItemProps) => {
-  const activeItem = selected === id ? `active` : "";
+const BoardItem = ({ name, id, setSelected, selected }: BoardItemProps) => {
+  const activeItem = selected?.id === id ? `active` : "";
 
   return (
-    <li className="BoardItem" onClick={() => setSelected(id)}>
+    <li className="BoardItem" onClick={() => setSelected({id, name})}>
       <a href="#" className={activeItem}>
         {name}
       </a>

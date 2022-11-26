@@ -35,7 +35,20 @@ $bg-element: #fcfcfc;
 $bg-color: #f4f4f4;
 // device width
 $container: 1440px;
+$desktop-width: 1000px;
+$tablet-width: 750px;
 //MIXIN
+@mixin desktop {
+  @media (max-width: $desktop-width) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: $tablet-width) {
+    @content;
+  }
+}
+
 @mixin flexCenter {
   display: flex;
   align-items: center;

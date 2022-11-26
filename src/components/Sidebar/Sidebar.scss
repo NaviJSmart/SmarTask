@@ -2,11 +2,12 @@
 
 .Sidebar {
   position: fixed;
+  
   height: calc(100% - 6rem);
   width: 18.75rem;
   background-color: $bg-element;
   padding: $margin-medium;
-  transition: all 0.4s;
+  transition: all 0.3s ease;
   &__navigation {
     margin-bottom: $margin-tiny;
     @include flexCenter;

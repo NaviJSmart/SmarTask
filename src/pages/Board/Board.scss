@@ -1,0 +1,9 @@
+.Board {
+    transition: all .3s ease;
+    position: absolute;
+    left: 18.75rem;
+    padding: 20px;
+    &.Board__full {
+        left: 0;
+    }
+}
