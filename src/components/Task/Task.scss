@@ -1,0 +1,57 @@
+@import "../../styles/variables";
+.Task {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  gap: 0.5rem;
+  border-radius: 15px;
+  box-shadow: 0 1px 10px 0px var(--box-shadow);
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    color: var(--subTitle);
+    font-size: $font-19;
+    font-weight: 500;
+  }
+  &__menu {
+    background: transparent;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    svg {
+        
+        fill: var(--svg);
+      width: 25px;
+      height: 25px;
+    }
+  }
+  &__description {
+    color: #9a9a9a;
+    margin-top: 20px;
+    font-size: $font-14;
+    
+  }
+  &__comments {
+    button {
+        background: transparent;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      svg {
+        stroke: #9a9a9a;
+        width: 20px;
+        height: 20px;
+      }
+      p {
+        color: #9a9a9a;
+      }
+    }
+    margin-top: 10px;
+   
+  }
+}

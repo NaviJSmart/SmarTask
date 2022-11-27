@@ -1,0 +1,14 @@
+.Dashboard {
+  transition: all 0.3s ease;
+  position: absolute;
+  left: 18.75rem;
+  padding: 20px;
+
+  &.Dashboard__full {
+    left: 0;
+  }
+  &__TaskBoard {
+    display: flex;
+    gap: 2rem;
+  }
+}

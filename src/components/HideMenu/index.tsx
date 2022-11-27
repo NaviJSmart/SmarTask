@@ -5,14 +5,14 @@ import { onToggleMenu } from "../../store/reducers/menuToggleReducer";
 
 import "./HideMenu.scss";
 
-
-
 const HideMenu = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   return (
     <div className="HideMenu">
-      <HideSVG />
-      <button onClick={() => dispatch(onToggleMenu())}>Hide Menu</button>
+      <button onClick={() => dispatch(onToggleMenu())}>
+        <HideSVG />
+        Hide Menu
+      </button>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import useLocalStorage from "use-local-storage";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { setTheme } from "../../store/reducers/themeReducer";

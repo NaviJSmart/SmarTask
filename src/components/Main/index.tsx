@@ -1,5 +1,5 @@
 import {useState} from "react";
-import Board from "../../pages/Board";
+import Dashboard from "../../pages/Dashboard";
 import Sidebar from "../Sidebar";
 import './Main.scss'
 const Main = () => {
@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <div className="Main">
       <Sidebar selected={selected} setSelected={setSelected} />
-      <Board selected={selected} />
+      <Dashboard selected={selected} />
     </div>
   );
 };

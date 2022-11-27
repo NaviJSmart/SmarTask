@@ -24,13 +24,11 @@ $veryLightBlue: #f0effa;
 $lightBlue: #a8a4ff;
 $gray: #8794a7;
 $lightGray: #f4f7fd;
-$lightGrayLine: #E4EBFA;
+$lightGrayLine: #e4ebfa;
 $mediumGray: #828fa3;
-$darkGray: #2B2C37;
-$darkGrayLine: #3E3F4E;
-$veryDarkGray: #20212C;
-
-
+$darkGray: #2b2c37;
+$darkGrayLine: #3e3f4e;
+$veryDarkGray: #20212c;
 
 // margins
 $margin-tiny: 0.5rem;
@@ -65,15 +63,18 @@ $tablet-width: 750px;
   @include flexCenter;
   position: relative;
 
-  svg {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-  }
   button {
     background: transparent;
     border: none;
-    padding: 0 2rem;
+    padding: 0 1.2rem;
     cursor: pointer;
+    svg {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 0;
+      width: 20px;
+      height: 20px;
+    }
   }
 }

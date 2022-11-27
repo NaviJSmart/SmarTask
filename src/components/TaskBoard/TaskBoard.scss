@@ -1,0 +1,58 @@
+@import "../../styles/variables";
+.TaskBoard {
+    max-width: 350px;
+    background-color: var(--elements);
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 3rem;
+    border-radius: 15px;
+    &__menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &-group {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+    }
+    &__color {
+        width: 20px;
+        height: 45px;
+        background-color: #84F0D0;
+        border-radius: 10px;
+        
+    }
+    &__title {
+        color: var(--title);
+        font-size: $font-23;
+    }
+    &__Task {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    &__btn-more {
+        svg {
+            stroke: var(--svg);
+            width: 30px;
+            height: 30px;
+        }
+    }
+    &__btn {
+        background: transparent;
+        border: 3px solid #F4F4F4;
+        width: 310px;
+        padding: 10px;
+        color: #2A85FF;
+        cursor: pointer;
+        font-size: $font-19;
+        font-weight: 600;
+        transition: all .2s;
+        &:hover {
+            background: #2A85FF;
+            color: $white;
+        }
+    }
+}

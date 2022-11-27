@@ -1,5 +1,4 @@
 import InputSearch from "../InputSearch";
-import InputToggle from "../InputToggle";
 import Logo from "../Logo";
 import Profile from "../Profile";
 import "./Header.scss";
