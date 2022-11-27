@@ -1,0 +1,24 @@
+@import "./variables";
+
+[data-theme="dark"] {
+  --bg: #20212C;
+  --scroll: #3E3F4E;
+  --borderLine: #3E3F4E;
+  --elements: #2B2C37;
+  --title: #ffffff;
+  --subTitle: #ffffff;
+  --svg: #ffffff;
+  --btn-text: #ffffff;
+  --box-shadow: #161616;
+}
+
+[data-theme="light"] {
+  --bg: #f4f4f4;
+  --borderLine: #f4f4f4;
+  --elements: #fcfcfc;
+  --title: #000000;
+  --subTitle: #000000;
+  --svg: #000000;
+  --btn-text: #000000;
+  --box-shadow: rgb(144, 144, 144);
+}

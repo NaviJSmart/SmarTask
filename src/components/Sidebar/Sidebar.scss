@@ -5,16 +5,17 @@
   
   height: calc(100% - 6rem);
   width: 18.75rem;
-  background-color: $bg-element;
+  background-color: var(--elements);
   padding: $margin-medium;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
   &__navigation {
     margin-bottom: $margin-tiny;
     @include flexCenter;
     text-decoration: none;
-    color: $black;
+    color: var(--subTitle);
     gap: 0.6rem;
     svg {
+      stroke: var(--svg);
       width: 18px;
       height: 18px;
     }

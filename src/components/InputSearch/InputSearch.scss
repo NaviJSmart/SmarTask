@@ -5,17 +5,19 @@
   min-width: 310px;
   transition: all .3s ease;
   svg {
+    stroke: var(--svg);
     position: absolute;
     top: 50%;
     left: 1rem;
     transform: translate(-50%, -50%);
   }
   input {
+    // color: #828fa3;
     padding: 0.5rem 2.5rem;
     border: none;
     border-radius: 15px;
     width: 100%;
-    background-color: $bg-color;
+    background-color: var(--bg);
   }
   @include desktop {
     // min-width: 2rem;

@@ -1,10 +1,10 @@
 @import "../../styles/variables";
 
 .Header {
-  position: sticky;
-  background-color: $bg-element;
+ 
+  background-color: var(--elements);
   height: 6rem;
-  box-shadow: 0 1px 10px 0px gray;
+  box-shadow: 0 1px 10px 0px var(--box-shadow);
   z-index: 100;
   line-height: 6rem;
 
@@ -25,10 +25,8 @@
   }
 }
 
-
 .Header {
   @include tablet {
-    
   }
   @include tablet {
     &__logo {

@@ -1,7 +1,7 @@
+import {  configureStore } from "@reduxjs/toolkit";
 import  themeReducer from './reducers/themeReducer';
 import menuToggleReducer from './reducers/menuToggleReducer';
 
-import {  configureStore } from "@reduxjs/toolkit";
 
 
 

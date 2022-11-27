@@ -13,12 +13,12 @@
 .toggle-button {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 30px;
+  width: 64px;
+  height: 32px;
   margin: 0;
   vertical-align: top;
   background: #2A85FF;
-  border: 1px solid #bbc1e1;
+  border: 1px solid var(--bg);
   border-radius: 30px;
   outline: none;
   cursor: pointer;
@@ -32,10 +32,10 @@
     line-height: 30px;
     display: inline-block;
     position: absolute;
-    left: 3.8px;
-    top: 1.6px;
-    width: 24px;
-    height: 24px;
+    left: 5px;
+    top: 2px;
+    width: 25px;
+    height: 25px;
     background-color: #FCFCFC;
     border-radius: 50%;
     transform: translateX(0);

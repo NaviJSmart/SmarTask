@@ -4,11 +4,11 @@
   justify-content: center;
   position: relative;
   min-width: 18.75rem;
-  border-right: 2px solid $bg-color;
+  border-right: 2px solid var(--borderLine);
   a {
     font-size: $font-30;
     text-decoration: none;
-    color: $black;
+    color: var(--title);
     &::before {
       content: "";
       display: inline-block;
