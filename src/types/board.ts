@@ -3,18 +3,18 @@ export interface Comment {
 	comment: string;
 }
 
-export interface Task {
+export interface TaskType {
 	id: string;
 	sub_title: string;
 	description: string;
-	comments: Comment[];
+	comments: [];
 }
 
 export interface Column {
 	id: string;
 	taskProcess: string;
 	color: string;
-	tasks: Task[];
+	tasks: TaskType[];
 }
 
 export interface Board {
@@ -29,3 +29,10 @@ export interface BoardType {
     error: null | string;
     selectedBoard: null | Board
 }
+
+export interface TaskColumnType {
+    taskColumns: Column[] | [];
+    loading: boolean;
+    error: null | string;
+}
+

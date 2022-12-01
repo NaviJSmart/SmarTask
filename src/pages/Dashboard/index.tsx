@@ -1,4 +1,3 @@
-import React from "react";
 import NavTitle from "../../components/NavTitle";
 import TaskBoard from "../../components/TaskBoard";
 import { useAppSelector } from "../../hooks/redux";
@@ -7,15 +6,14 @@ import "./Dashboard.scss";
 const Dashboard = () => {
   const { isHide } = useAppSelector((state) => state.menuToggle);
   const activeBoard = isHide ? "Dashboard Dashboard__full" : "Dashboard";
-
+  const { taskColumns } = useAppSelector((state) => state.tasksBoard);
   return (
     <div className={activeBoard}>
-      <NavTitle/>
+      <NavTitle />
       <div className="Dashboard__TaskBoard">
-        <TaskBoard />
-        <TaskBoard />
-        
-        
+        {taskColumns.map((item) => (
+          <TaskBoard key={item.id} columnTask={item} />
+        ))}
       </div>
     </div>
   );
