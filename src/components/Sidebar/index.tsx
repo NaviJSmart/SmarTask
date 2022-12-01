@@ -2,12 +2,13 @@ import "./Sidebar.scss";
 import { ReactComponent as BoardSVG } from "../../assets/board.svg";
 import Logout from "../Logout";
 import HideMenu from "../HideMenu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CreateBoard from "../CreateBoardButton";
 import ShowMenu from "../ShowMenu";
 import BoardItem from "../BoardItem";
 import InputToggle from "../InputToggle";
-import { useAppSelector } from "../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { getBoards } from "../../store/reducers/boardsReducer";
 
 interface SideBarProps {
   setSelected: React.Dispatch<
@@ -16,17 +17,15 @@ interface SideBarProps {
   selected: { id: string; name: string } | null;
 }
 
-const data = [
-  { id: "lala123", name: "UI/UX Desing" },
-  { id: "lala235", name: "Web Application" },
-  {
-    id: "laga423",
-    name: "Project Tesla dfsdfsdfsd fsdfsdfdsfsdfsd sdfdsfsdfdsf sdfsdfsdfsd sdfsdf sdfdsfsdfdsfdsfsdfdssfsdfdsf",
-  },
-];
-const Sidebar = ({ selected, setSelected }: SideBarProps) => {
-  const { isHide } = useAppSelector((state) => state.menuToggle);
 
+const Sidebar = () => {
+  const { isHide } = useAppSelector((state) => state.menuToggle);
+  const {boards} = useAppSelector(state => state.dashboards)
+  const dispatch = useAppDispatch()
+  
+  useEffect(() => {
+    dispatch(getBoards())
+  }, [dispatch])
   return (
     <nav className={`Sidebar ${isHide ? "hide" : ""}`}>
       <div className="Sidebar__menu">
@@ -36,12 +35,11 @@ const Sidebar = ({ selected, setSelected }: SideBarProps) => {
             <p>Dashboards</p>
           </a>
           <ul className="Sidebar__menu_items">
-            {data.map((item: any) => (
+            {boards.map((item: any) => (
               <BoardItem
                 key={item.id}
                 {...item}
-                setSelected={setSelected}
-                selected={selected}
+               
               />
             ))}
           </ul>

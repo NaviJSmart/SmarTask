@@ -1,6 +1,7 @@
 import {  configureStore } from "@reduxjs/toolkit";
 import  themeReducer from './reducers/themeReducer';
 import menuToggleReducer from './reducers/menuToggleReducer';
+import boardsReducer from "./reducers/boardsReducer";
 
 
 
@@ -8,7 +9,8 @@ import menuToggleReducer from './reducers/menuToggleReducer';
 const store = configureStore({
         reducer: {
             colorTheme: themeReducer,
-            menuToggle: menuToggleReducer
+            menuToggle: menuToggleReducer,
+            dashboards: boardsReducer,
         }
     })
 

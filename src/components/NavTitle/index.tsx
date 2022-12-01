@@ -1,10 +1,10 @@
 import React from 'react'
+import { useAppSelector } from '../../hooks/redux'
 import './NavTitle.scss'
-interface NavProps  {
-   selected:  {id: string; name:string} | null;
-}
-const NavTitle = ({selected} : NavProps) => {
-    const contructTitle = selected && selected?.name.length > 20 ? selected?.name.slice(0, 15) + ' ...' : selected?.name
+
+const NavTitle = () => {
+    const {selectedBoard} = useAppSelector(state => state.dashboards)
+    const contructTitle = selectedBoard && selectedBoard?.title.length > 20 ? selectedBoard?.title.slice(0, 15) + ' ...' : selectedBoard?.title
   return (
     <h2 className='NavTitle'>{contructTitle}</h2>
   )
