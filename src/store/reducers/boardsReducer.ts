@@ -1,21 +1,35 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  createAsyncThunk,
+  AnyAction,
+  PayloadAction,
+} from "@reduxjs/toolkit";
 
 import { Board, BoardType } from "./../../types/board";
 
-export const getBoards = createAsyncThunk(
-  "board/getBoard",
-  async (_, { rejectWithValue }) => {
+export const getBoards = createAsyncThunk<
+  Board[],
+  undefined,
+  { rejectValue: string }
+>("board/getBoard", async (_, { rejectWithValue }) => {
+  try {
     const res = await fetch(
       "https://6387121fd9b24b1be3e4f67f.mockapi.io/boards/"
     );
-    console.log(res);
+
     if (!res.ok) {
-      throw new Error("Failed to fetch");
+      throw res;
     }
-    const data = (await res.json()) as Board[];
+    const data = await res.json();
     return data;
+  } catch (e: any) {
+    if (typeof e.text === "function") {
+      return e.text().then((someError: any) => rejectWithValue(someError));
+    } else {
+      return rejectWithValue(String(e.message));
+    }
   }
-);
+});
 
 const initialState: BoardType = {
   boards: [],
@@ -29,8 +43,8 @@ const boardReducer = createSlice({
   initialState,
   reducers: {
     setSelected: (state, action) => {
-        state.selectedBoard = action.payload
-    }
+      state.selectedBoard = action.payload;
+    },
   },
   extraReducers(builder) {
     builder
@@ -39,16 +53,22 @@ const boardReducer = createSlice({
         state.error = null;
       })
       .addCase(getBoards.fulfilled, (state, action) => {
-        state.loading = false;
-        state.boards = action.payload;
+        if (action.payload) {
+          state.loading = false;
+          state.boards = action.payload;
+        }
       })
-      .addCase(getBoards.rejected, (state, action) => {
+      .addMatcher(isError, (state, action: PayloadAction<string>) => {
+        state.error = action.payload;
         state.loading = false;
-        state.error = "Error";
       });
   },
 });
 
-export const {setSelected}  = boardReducer.actions
+export const { setSelected } = boardReducer.actions;
 
 export default boardReducer.reducer;
+
+function isError(action: AnyAction) {
+  return action.type.endsWith("rejected");
+}
