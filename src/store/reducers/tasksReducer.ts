@@ -26,7 +26,11 @@ const initialState: TaskColumnType = {
 const taskReducer = createSlice({
   name: "tasksColumn",
   initialState,
-  reducers: {},
+  reducers: {
+    updateTaskCol: (state, action) => {
+      state.taskColumns =  action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getTaskColumns.pending, (state) => {
@@ -38,5 +42,7 @@ const taskReducer = createSlice({
       });
   },
 });
+
+export const { updateTaskCol } = taskReducer.actions;
 
 export default taskReducer.reducer;

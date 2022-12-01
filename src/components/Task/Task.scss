@@ -2,11 +2,13 @@
 .Task {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  
   padding: 15px;
   gap: 0.5rem;
   border-radius: 15px;
   box-shadow: 0 1px 10px 0px var(--box-shadow);
+  background-color: var(--elements);
+  margin-bottom: 2rem;
   &__header {
     display: flex;
     justify-content: space-between;
