@@ -1,3 +1,4 @@
+import  axios  from 'axios';
 import {
   createSlice,
   createAsyncThunk,
@@ -30,6 +31,19 @@ export const getBoards = createAsyncThunk<
     }
   }
 });
+
+export const createBoard = createAsyncThunk(
+  'board/createBoard',
+  async () => {
+    try {
+      const {data} = await axios.post("https://6387121fd9b24b1be3e4f67f.mockapi.io/boards/")
+      console.log(data)
+      return data
+    } catch (error) {
+      console.log(error)
+    }
+  }
+)
 
 const initialState: BoardType = {
   boards: [],

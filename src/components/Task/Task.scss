@@ -1,14 +1,11 @@
 @import "../../styles/variables";
 .Task {
-  display: flex;
-  flex-direction: column;
-  
   padding: 15px;
-  gap: 0.5rem;
+  gap: 0.3rem;
   border-radius: 15px;
   box-shadow: 0 1px 10px 0px var(--box-shadow);
   background-color: var(--elements);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   &__header {
     display: flex;
     justify-content: space-between;
@@ -16,7 +13,7 @@
   }
   &__title {
     color: var(--subTitle);
-    font-size: $font-19;
+    font-size: $font-16;
     font-weight: 500;
   }
   &__menu {

@@ -6,27 +6,27 @@
   min-width: 18.75rem;
   border-right: 2px solid var(--borderLine);
   a {
-    font-size: $font-30;
+    font-size: $font-26;
     text-decoration: none;
     color: var(--title);
     &::before {
       content: "";
       display: inline-block;
       position: absolute;
-      top: 1.5rem;
+      top: 0rem;
       left: 6rem;
       width: 130px;
-      height: 5px;
+      height: 4px;
       background-color: $blue;
     }
     &::after {
       content: "";
       display: inline-block;
       position: absolute;
-      bottom: 1.5rem;
+      bottom: 0rem;
       right: 6rem;
       width: 130px;
-      height: 5px;
+      height: 4px;
       background-color: $blue;
     }
   }
