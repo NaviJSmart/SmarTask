@@ -1,10 +1,14 @@
 import React from "react";
+import { useAppDispatch } from "../../hooks/redux";
+import { onToggleModal } from "../../store/reducers/modalReducer";
+
 import "./CreateBoard.scss";
 
 const CreateBoard = () => {
+  const dispatch = useAppDispatch()
   return (
     <div className="CreateBoard">
-      <button>+Create New Board</button>
+      <button onClick={() => dispatch(onToggleModal())}>+Create New Board</button>
     </div>
   );
 };

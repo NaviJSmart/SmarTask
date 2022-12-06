@@ -36,10 +36,18 @@
         min-height: 50px;
     }
     &__btn-more {
+        cursor: pointer;
         svg {
+            box-sizing: unset;
+            border-radius: 50%;
+            transition: all 0.2s;
+            padding: 1rem;
             stroke: var(--svg);
             width: 30px;
             height: 30px;
+            &:hover {
+                background: var(--bg);
+            }
         }
     }
     &__btn {

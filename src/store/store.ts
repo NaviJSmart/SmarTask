@@ -3,6 +3,8 @@ import themeReducer from "./reducers/themeReducer";
 import menuToggleReducer from "./reducers/menuToggleReducer";
 import boardsReducer from "./reducers/boardsReducer";
 import tasksReducer from "./reducers/tasksReducer";
+import modalReducer from "./reducers/modalReducer";
+
 
 const store = configureStore({
   reducer: {
@@ -10,6 +12,7 @@ const store = configureStore({
     menuToggle: menuToggleReducer,
     dashboards: boardsReducer,
     tasksBoard: tasksReducer,
+    modalToggle: modalReducer
   },
 });
 

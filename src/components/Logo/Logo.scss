@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  min-width: 18.75rem;
+  min-width: 16.875rem;
   border-right: 2px solid var(--borderLine);
   a {
     font-size: $font-26;
@@ -13,7 +13,7 @@
       content: "";
       display: inline-block;
       position: absolute;
-      top: 0rem;
+      top: 0.7rem;
       left: 6rem;
       width: 130px;
       height: 4px;
@@ -23,7 +23,7 @@
       content: "";
       display: inline-block;
       position: absolute;
-      bottom: 0rem;
+      bottom: 0.7rem;
       right: 6rem;
       width: 130px;
       height: 4px;

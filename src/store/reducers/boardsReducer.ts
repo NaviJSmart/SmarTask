@@ -34,11 +34,11 @@ export const getBoards = createAsyncThunk<
 
 export const createBoard = createAsyncThunk(
   'board/createBoard',
-  async () => {
+  async (board) => {
     try {
-      const {data} = await axios.post("https://6387121fd9b24b1be3e4f67f.mockapi.io/boards/")
+      const {data} = await axios.post("https://6387121fd9b24b1be3e4f67f.mockapi.io/boards/", board)
       console.log(data)
-      return data
+      return await data
     } catch (error) {
       console.log(error)
     }
@@ -71,6 +71,9 @@ const boardReducer = createSlice({
           state.loading = false;
           state.boards = action.payload;
         }
+      })
+      .addCase(createBoard.fulfilled, (state, action) => {
+        console.log(action.payload);
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
         state.error = action.payload;
