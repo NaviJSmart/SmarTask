@@ -1,4 +1,4 @@
-import  axios  from 'axios';
+import axios, { AxiosError } from "axios";
 import {
   createSlice,
   createAsyncThunk,
@@ -7,6 +7,10 @@ import {
 } from "@reduxjs/toolkit";
 
 import { Board, BoardType } from "./../../types/board";
+
+interface boardCreation {
+  title: string;
+}
 
 export const getBoards = createAsyncThunk<
   Board[],
@@ -32,18 +36,22 @@ export const getBoards = createAsyncThunk<
   }
 });
 
-export const createBoard = createAsyncThunk(
-  'board/createBoard',
-  async (board) => {
-    try {
-      const {data} = await axios.post("https://6387121fd9b24b1be3e4f67f.mockapi.io/boards/", board)
-      console.log(data)
-      return await data
-    } catch (error) {
-      console.log(error)
-    }
+export const createBoard = createAsyncThunk<
+  Board,
+  boardCreation,
+  { rejectValue: string }
+>("board/createBoard", async (board, { rejectWithValue }) => {
+  try {
+    const data = await axios.post(
+      "https://6387121fd9b24b1be3e4f67f.mockapi.io/boards/",
+      board
+    );
+    return await data.data;
+  } catch (error) {
+    const err = error as AxiosError;
+    return rejectWithValue(String(err.message));
   }
-)
+});
 
 const initialState: BoardType = {
   boards: [],
@@ -73,7 +81,8 @@ const boardReducer = createSlice({
         }
       })
       .addCase(createBoard.fulfilled, (state, action) => {
-        console.log(action.payload);
+        state.boards = [...state.boards, action.payload];
+        state.selectedBoard = action.payload;
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
         state.error = action.payload;

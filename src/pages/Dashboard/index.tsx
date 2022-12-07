@@ -32,6 +32,7 @@ const Dashboard = () => {
               ))}
               
               {provided.placeholder}
+              <CreateColumn />
             </div>
           )}
         </Droppable>

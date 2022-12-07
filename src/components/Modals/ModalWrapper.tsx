@@ -7,7 +7,7 @@ const ModalWrapper = ({ children }: { children: JSX.Element }) => {
   const modalRef = useRef<HTMLDivElement | null>(null);
   const onModalWrapper = (e: any) => {
     if (modalRef.current === e.target) {
-      dispatch(onToggleModal());
+      dispatch(onToggleModal(''));
     }
   };
   return (

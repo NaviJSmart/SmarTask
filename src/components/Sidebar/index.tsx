@@ -35,7 +35,7 @@ const Sidebar = () => {
             <p>Dashboards</p>
           </a>
           <ul className="Sidebar__menu_items">
-            {boards.map((item: any) => (
+            {boards.length >= 1 && boards.map((item: any) => (
               <BoardItem
                 key={item.id}
                 {...item}

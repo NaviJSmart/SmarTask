@@ -11,7 +11,6 @@ export const getTaskColumns = createAsyncThunk<
     const res = await axios.get(
       `https://6387121fd9b24b1be3e4f67f.mockapi.io/boards/${id}/columns`
     );
-    console.log(res);
     return res.data;
   } catch (error) {
     console.log(error);

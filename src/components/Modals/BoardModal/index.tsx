@@ -2,6 +2,7 @@ import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { createBoard } from "../../../store/reducers/boardsReducer";
+import { onToggleModal } from "../../../store/reducers/modalReducer";
 import ModalWrapper from "../ModalWrapper";
 import "./BoardModal.scss";
 interface BoardTitleType {
@@ -9,17 +10,20 @@ interface BoardTitleType {
 }
 const BoardModal = () => {
   const dispatch = useAppDispatch()
-  const { isOpen } = useAppSelector((state) => state.modalToggle);
+  const { modalType } = useAppSelector((state) => state.modalToggle);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<BoardTitleType>();
-  const onSubmit: SubmitHandler<BoardTitleType> = (data) => console.log(data);
-  
+  const onSubmit: SubmitHandler<BoardTitleType> = (data, e) => {
+    dispatch(createBoard(data));
+    dispatch(onToggleModal(''))
+    e?.target.reset()
+  }
   return (
     <>
-      {isOpen ? (
+      {modalType === 'createBoard' ? (
         <ModalWrapper>
           <div className="BoardModal">
             <form onSubmit={handleSubmit(onSubmit)}>

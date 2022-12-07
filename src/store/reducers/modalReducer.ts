@@ -1,14 +1,15 @@
+import { PayloadAction } from '@reduxjs/toolkit';
 import {createSlice} from '@reduxjs/toolkit';
 
 const initialState = {
-    isOpen: false
+    modalType: ''
 }
 
 const modalReducer = createSlice({
     name: 'modal',
     initialState,
     reducers: {
-        onToggleModal: (state) =>{ state.isOpen = !state.isOpen}
+        onToggleModal: (state, action: PayloadAction<string>) =>{ state.modalType =  action.payload}
      }
 })
 export const {onToggleModal} = modalReducer.actions
