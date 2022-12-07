@@ -40,6 +40,21 @@ export const postTaskColumns = createAsyncThunk<any, any>(
   }
 );
 
+export const deleteTaskColumn = createAsyncThunk<any, any>(
+  "taskColumn/deleteTaskColumn",
+  async ({ boardId, columnId }, { dispatch }) => {
+    try {
+      await axios.delete(
+        `https://6387121fd9b24b1be3e4f67f.mockapi.io/boards/${boardId}/columns/${columnId}`
+      );
+
+      dispatch(deleteTaskCol(columnId));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const initialState: TaskColumnType = {
   taskColumns: [],
   loading: false,
@@ -51,6 +66,11 @@ const taskReducer = createSlice({
   reducers: {
     updateTaskCol: (state, action) => {
       state.taskColumns = action.payload;
+    },
+    deleteTaskCol: (state, action: PayloadAction<string>) => {
+      state.taskColumns = state.taskColumns.filter(
+        (item) => item.id !== action.payload
+      );
     },
   },
   extraReducers: (builder) => {
@@ -72,7 +92,7 @@ const taskReducer = createSlice({
   },
 });
 
-export const { updateTaskCol } = taskReducer.actions;
+export const { updateTaskCol, deleteTaskCol } = taskReducer.actions;
 
 export default taskReducer.reducer;
 

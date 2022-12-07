@@ -1,69 +1,73 @@
 @import "../../styles/variables";
 .TaskBoard {
-    margin-right: 1.5rem;
-    min-width: 320px;
-    max-width: 320px;
-    background-color: var(--elements);
+  margin-right: 1.5rem;
+  min-width: 320px;
+  max-width: 320px;
+  background-color: var(--elements);
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 1rem;
+  border-radius: 15px;
+  height: 100%;
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-group {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+  &__color {
+    width: 20px;
+    height: 45px;
+    background-color: #84f0d0;
+    border-radius: 10px;
+  }
+  &__title {
+    color: var(--title);
+    font-size: $font-19;
+  }
+  &__Task {
     display: flex;
     flex-direction: column;
-    padding: 15px;
-    gap: 1rem;
-    border-radius: 15px;
-    height: 100%;
-    &__menu {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        &-group {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-    }
-    &__color {
-        width: 20px;
-        height: 45px;
-        background-color: #84F0D0;
-        border-radius: 10px;
-        
-    }
-    &__title {
-        color: var(--title);
-        font-size: $font-19;
-    }
-    &__Task {
-        display: flex;
-        flex-direction: column;
-        min-height: 50px;
-    }
-    &__btn-more {
-        cursor: pointer;
-        svg {
-            box-sizing: unset;
-            border-radius: 50%;
-            transition: all 0.2s;
-            padding: 1rem;
-            stroke: var(--svg);
-            width: 30px;
-            height: 30px;
-            &:hover {
-                background: var(--bg);
-            }
-        }
-    }
-    &__btn {
-        background: transparent;
-        border: 3px solid #F4F4F4;
-        width: 100%;
-        padding: 10px;
-        color: #2A85FF;
-        cursor: pointer;
-        font-size: $font-16;
-        font-weight: 600;
-        transition: all .2s;
+    min-height: 50px;
+  }
+  &__btn-more {
+    position: relative;
+    button {
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      svg {
+        box-sizing: unset;
+        border-radius: 50%;
+        transition: all 0.2s;
+        padding: 1rem;
+        stroke: var(--svg);
+        width: 30px;
+        height: 30px;
         &:hover {
-            background: #2A85FF;
-            color: $white;
+          background: var(--bg);
         }
+      }
     }
+  }
+  &__btn {
+    background: transparent;
+    border: 3px solid #f4f4f4;
+    width: 100%;
+    padding: 10px;
+    color: #2a85ff;
+    cursor: pointer;
+    font-size: $font-16;
+    font-weight: 600;
+    transition: all 0.2s;
+    &:hover {
+      background: #2a85ff;
+      color: $white;
+    }
+  }
 }

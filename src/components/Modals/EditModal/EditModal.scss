@@ -1,0 +1,24 @@
+.EditModal {
+    width: 70px;
+    height: 100px;
+    background-color: var(--elements);
+    border: 1px solid var(--bg);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 70%;
+    button {
+        color: var(--color);
+        background: transparent;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: var(--bg);
+        }
+    }
+}

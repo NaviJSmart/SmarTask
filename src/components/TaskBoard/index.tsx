@@ -1,17 +1,25 @@
+import { useState } from "react";
 import Task from "../Task";
-import { ReactComponent as More } from "../../assets/more.svg";
+import { ReactComponent as MoreSVG } from "../../assets/more.svg";
 import "./TaskBoard.scss";
 import { Column } from "../../types/board";
 import { Draggable, Droppable } from "react-beautiful-dnd";
+import EditModal from "../Modals/EditModal";
+import { useAppSelector } from "../../hooks/redux";
 
 type columnTaskProp = { columnTask: Column; idx: number };
 const TaskBoard = ({ columnTask, idx }: columnTaskProp) => {
+  const [isOpen, setIsOpen] = useState(false);
   const { taskProcess, color, tasks, id } = columnTask;
- 
+
   return (
     <Draggable draggableId={id} index={idx}>
       {(provided) => (
-        <div className="TaskBoard" {...provided.draggableProps} ref={provided.innerRef} >
+        <div
+          className="TaskBoard"
+          {...provided.draggableProps}
+          ref={provided.innerRef}
+        >
           <div className="TaskBoard__menu" {...provided.dragHandleProps}>
             <div className="TaskBoard__menu-group">
               <div
@@ -22,7 +30,10 @@ const TaskBoard = ({ columnTask, idx }: columnTaskProp) => {
             </div>
 
             <div className="TaskBoard__btn-more">
-              <More />
+              <button onClick={() => setIsOpen(!isOpen)}>
+                <MoreSVG />
+              </button>
+              {isOpen ? <EditModal columnId={id}/> : null}
             </div>
           </div>
           <Droppable droppableId={id} type="task">
