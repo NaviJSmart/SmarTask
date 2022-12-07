@@ -1,9 +1,11 @@
-import React from "react";
+import { useAppDispatch } from "../../hooks/redux";
+import { onToggleModal } from "../../store/reducers/modalReducer";
 import "./CreateColumn.scss";
 const CreateColumn = () => {
+  const dispatch = useAppDispatch()
   return (
     <div className="CreateColumn">
-      <button>+ New Column</button>
+      <button onClick={() => dispatch(onToggleModal('createColumn'))}>+ New Column</button>
     </div>
   );
 };

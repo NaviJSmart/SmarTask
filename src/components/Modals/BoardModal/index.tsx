@@ -15,11 +15,12 @@ const BoardModal = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm<BoardTitleType>();
   const onSubmit: SubmitHandler<BoardTitleType> = (data, e) => {
     dispatch(createBoard(data));
     dispatch(onToggleModal(''))
-    e?.target.reset()
+    reset()
   }
   return (
     <>

@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useAppDispatch } from "../../hooks/redux";
 import { onToggleModal } from "../../store/reducers/modalReducer";
 import "./ModalWrapper.scss";
-const ModalWrapper = ({ children }: { children: JSX.Element }) => {
+const ModalWrapper = ({ children }: { children: JSX.Element|JSX.Element[] }) => {
   const dispatch = useAppDispatch();
   const modalRef = useRef<HTMLDivElement | null>(null);
   const onModalWrapper = (e: any) => {

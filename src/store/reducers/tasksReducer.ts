@@ -1,21 +1,44 @@
 import { Column, TaskColumnType } from "./../../types/board";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import {
+  AnyAction,
+  createAsyncThunk,
+  createSlice,
+  PayloadAction,
+} from "@reduxjs/toolkit";
+import axios, { AxiosError } from "axios";
 
 export const getTaskColumns = createAsyncThunk<
   any,
   string,
   { rejectValue: string }
->("tasksColumn/getTaskColumns", async (id) => {
+>("tasksColumn/getTaskColumns", async (id, { rejectWithValue }) => {
   try {
     const res = await axios.get(
       `https://6387121fd9b24b1be3e4f67f.mockapi.io/boards/${id}/columns`
     );
     return res.data;
   } catch (error) {
-    console.log(error);
+    const err = error as AxiosError;
+    return rejectWithValue(String(err.message));
   }
 });
+
+export const postTaskColumns = createAsyncThunk<any, any>(
+  "taskColumn/postTaskColumns",
+  async ({ id, data }, { rejectWithValue }) => {
+    try {
+      const res = await axios.post(
+        `https://6387121fd9b24b1be3e4f67f.mockapi.io/boards/${id}/columns`,
+        data
+      );
+      console.log(res);
+      return await res.data;
+    } catch (error) {
+      const err = error as AxiosError;
+      return rejectWithValue(String(err.message));
+    }
+  }
+);
 
 const initialState: TaskColumnType = {
   taskColumns: [],
@@ -27,7 +50,7 @@ const taskReducer = createSlice({
   initialState,
   reducers: {
     updateTaskCol: (state, action) => {
-      state.taskColumns =  action.payload;
+      state.taskColumns = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -38,6 +61,13 @@ const taskReducer = createSlice({
       .addCase(getTaskColumns.fulfilled, (state, action) => {
         state.loading = false;
         state.taskColumns = action.payload;
+      })
+      .addCase(postTaskColumns.fulfilled, (state, action) => {
+        state.taskColumns = [...state.taskColumns, action.payload];
+      })
+      .addMatcher(isError, (state, action: PayloadAction<string>) => {
+        state.error = action.payload;
+        state.loading = false;
       });
   },
 });
@@ -45,3 +75,7 @@ const taskReducer = createSlice({
 export const { updateTaskCol } = taskReducer.actions;
 
 export default taskReducer.reducer;
+
+function isError(action: AnyAction) {
+  return action.type.endsWith("rejected");
+}

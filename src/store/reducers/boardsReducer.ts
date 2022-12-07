@@ -7,6 +7,7 @@ import {
 } from "@reduxjs/toolkit";
 
 import { Board, BoardType } from "./../../types/board";
+import { updateTaskCol } from "./tasksReducer";
 
 interface boardCreation {
   title: string;
@@ -25,6 +26,7 @@ export const getBoards = createAsyncThunk<
     if (!res.ok) {
       throw res;
     }
+
     const data = await res.json();
     return data;
   } catch (e: any) {
@@ -40,12 +42,13 @@ export const createBoard = createAsyncThunk<
   Board,
   boardCreation,
   { rejectValue: string }
->("board/createBoard", async (board, { rejectWithValue }) => {
+>("board/createBoard", async (board, { rejectWithValue, dispatch }) => {
   try {
     const data = await axios.post(
       "https://6387121fd9b24b1be3e4f67f.mockapi.io/boards/",
       board
     );
+    dispatch(updateTaskCol([]))
     return await data.data;
   } catch (error) {
     const err = error as AxiosError;

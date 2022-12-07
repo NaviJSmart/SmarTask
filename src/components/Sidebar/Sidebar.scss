@@ -8,6 +8,7 @@
   background-color: var(--elements);
   padding: $margin-medium;
   transition: transform 0.3s ease;
+  
   &__navigation {
     margin-bottom: $margin-tiny;
     @include flexCenter;
@@ -28,7 +29,8 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-
+    
+    
     &_features {
       display: flex;
       flex-direction: column;

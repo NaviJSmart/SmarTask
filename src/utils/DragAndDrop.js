@@ -41,7 +41,6 @@ export const OnDragEnd = (result, { taskColumns, dispatch, updateTaskCol }) => {
   } else {
     const startCol = [...start.tasks];
     const [newPeace] = startCol.splice(source.index, 1);
-    console.log(startCol);
 
     const finishCol = [...finish.tasks];
     finishCol.splice(destination.index, 0, newPeace);

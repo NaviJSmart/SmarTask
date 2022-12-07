@@ -1,4 +1,3 @@
-import React from "react";
 import { useAppDispatch } from "../../hooks/redux";
 import { onToggleModal } from "../../store/reducers/modalReducer";
 
