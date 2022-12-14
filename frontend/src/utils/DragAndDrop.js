@@ -1,6 +1,7 @@
+import { updateColumns } from "../store/reducers/allBoardsReducer";
 
 
-export const OnDragEnd = (result, { taskColumns, dispatch, updateTaskCol, boardId }) => {
+export const OnDragEnd = (result, { taskColumns, dispatch }) => {
   const { destination, source, type } = result;
 
   if (!destination) return;
@@ -17,7 +18,7 @@ export const OnDragEnd = (result, { taskColumns, dispatch, updateTaskCol, boardI
     const [newOrder] = columns.splice(source.index, 1);
     columns.splice(destination.index, 0, newOrder);
     
-    dispatch(updateTaskCol(columns));
+    dispatch(updateColumns(columns));
     return;
   }
 
@@ -37,7 +38,7 @@ export const OnDragEnd = (result, { taskColumns, dispatch, updateTaskCol, boardI
       }
       return item;
     });
-    dispatch(updateTaskCol(checker));
+    dispatch(updateColumns(checker));
 
     //Horizontal
   } else {
@@ -56,6 +57,6 @@ export const OnDragEnd = (result, { taskColumns, dispatch, updateTaskCol, boardI
         return item;
       }
     });
-    dispatch(updateTaskCol(horizontalColumn));
+    dispatch(updateColumns(horizontalColumn));
   }
 };

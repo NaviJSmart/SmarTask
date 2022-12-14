@@ -5,21 +5,16 @@
       "title": "UI/UX Design",
       "columns": [
         {
-          "id": "1",
+          "id": "1as",
           "taskProcess": "Doing",
           "color": "#84F0D0",
           "tasks": [
             {
-              "id": "1",
+              "id": "dsfdsf4fg",
               "sub_title": "UX develop",
               "description":
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-              "comments": [
-                {
-                  "id": "1",
-                  "comment": "Hello From there and here"
-                }
-              ]
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+              
             }
           ]
         }
@@ -30,29 +25,16 @@
       "title": "Web Application",
       "columns": [
         {
-          "id": "2",
+          "id": "2zxcd",
           "taskProcess": "Doing",
           "color": "#84F0D0",
           "tasks": [
             {
-              "id": "2",
+              "id": "234gfhgh",
               "sub_title": "Research data",
               "description":
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-              "comments": [
-                {
-                  "id": "232df4568fdfsd",
-                  "comment": "Hello From there and here"
-                },
-                {
-                  "id": "232d68fdfsd",
-                  "comment": "Nice work"
-                },
-                {
-                  "id": "232df4fdfsd",
-                  "comment": "well done !!"
-                }
-              ]
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+             
             }
           ]
         },
@@ -65,21 +47,8 @@
               "id": "1456789vxuj",
               "sub_title": "UI re-develop",
               "description":
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-              "comments": [
-                {
-                  "id": "32df4568fdfs",
-                  "comment": "Hello From there and here"
-                },
-                {
-                  "id": "23lvd68fdfsd",
-                  "comment": "Nice work"
-                },
-                {
-                  "id": "232df4fdddfsd",
-                  "comment": "well done !!"
-                }
-              ]
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+              
             }
           ]
         }
@@ -91,7 +60,7 @@
       "title": "Project Tesla Model S",
       "columns": [
         {
-          "id": "3",
+          "id": "3xzcd57",
           "taskProcess": "Doing",
           "color": "#84F0D0",
           "tasks": [
@@ -99,21 +68,8 @@
               "id": "123k6789vxuj",
               "sub_title": "Research data",
               "description":
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-              "comments": [
-                {
-                  "id": "2j2df4568fsd",
-                  "comment": "Hello From there and here"
-                },
-                {
-                  "id": "232sd8fdfsd",
-                  "comment": "Nice work"
-                },
-                {
-                  "id": "2gh6df4fdfsd",
-                  "comment": "well done !!"
-                }
-              ]
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+              
             }
           ]
         },
@@ -126,21 +82,8 @@
               "id": "1496f789vxuj",
               "sub_title": "UI re-develop",
               "description":
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-              "comments": [
-                {
-                  "id": "5jdf4568fdfs",
-                  "comment": "Hello From there and here"
-                },
-                {
-                  "id": "23lvdg02fdfsd",
-                  "comment": "Nice work"
-                },
-                {
-                  "id": "232dg3fdddfsd",
-                  "comment": "well done !!"
-                }
-              ]
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+            
             }
           ]
         }

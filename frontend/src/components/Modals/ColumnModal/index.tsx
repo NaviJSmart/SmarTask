@@ -1,16 +1,15 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { onToggleModal } from "../../../store/reducers/modalReducer";
-import { postTaskColumns } from "../../../store/reducers/columnReducer";
 import ModalWrapper from "../ModalWrapper";
 import "./ColumnModal.scss";
 import "../Modal.scss";
+import { createColumn } from "../../../store/reducers/allBoardsReducer";
 interface ColumnTitleType {
   taskProcess: string;
   tasks: [];
 }
 const ColumnModal = () => {
-  const { selectedBoard } = useAppSelector((state) => state.dashboards);
   const dispatch = useAppDispatch();
   const { modalType } = useAppSelector((state) => state.modalToggle);
   const {
@@ -20,12 +19,8 @@ const ColumnModal = () => {
     reset,
   } = useForm<ColumnTitleType>();
   const onSubmit: SubmitHandler<ColumnTitleType> = (data) => {
-    if (selectedBoard) {
-      dispatch(
-        postTaskColumns({ id: selectedBoard.id, data: { ...data, tasks: [] } })
-      );
-      dispatch(onToggleModal(""));
-    }
+    dispatch(createColumn(data))
+    dispatch(onToggleModal(""));
     reset();
   };
 

@@ -1,13 +1,11 @@
-export interface Comment {
-	id: string;
-	comment: string;
-}
+
+
 
 export interface TaskType {
 	id: string;
 	sub_title: string;
 	description: string;
-	comments: [];
+	
 }
 
 export interface Column {
@@ -20,14 +18,16 @@ export interface Column {
 export interface Board {
 	id: string;
 	title: string;
-	
+	columns: Column[];
 }
+
 
 export interface BoardType {
     boards: Board[] | [];
     loading: boolean;
     error: null | string;
-    selectedBoard: null | Board
+    selectedBoard: null | Board,
+	selectedColumn: string | null
 }
 
 export interface TaskColumnType {

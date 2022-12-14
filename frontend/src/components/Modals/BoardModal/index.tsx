@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
-import { createBoard } from "../../../store/reducers/boardsReducer";
+import { createBoard } from "../../../store/reducers/allBoardsReducer";
 import { onToggleModal } from "../../../store/reducers/modalReducer";
 import ModalWrapper from "../ModalWrapper";
 import "./BoardModal.scss";

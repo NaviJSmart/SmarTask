@@ -1,7 +1,6 @@
 @import "../../styles/variables";
 
 .Header {
- 
   background-color: var(--elements);
   height: 4rem;
   box-shadow: 0 1px 10px 0px var(--box-shadow);
@@ -15,12 +14,32 @@
   }
   &__section {
     width: 100%;
-    @include flexCenter;
-    justify-content: space-between;
+    display: flex;
+    justify-content: end;
     padding-left: 20px;
     &_menu {
-      @include flexCenter;
-      gap: 1rem;
+      width: 3rem;
+
+      display: flex;
+      
+      position: relative;
+      button {
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        svg {
+          box-sizing: unset;
+          border-radius: 50%;
+          transition: all 0.2s;
+          padding: 0.5rem;
+          stroke: var(--svg);
+          width: 30px;
+          height: 30px;
+          &:hover {
+            background: var(--bg);
+          }
+        }
+      }
     }
   }
 }

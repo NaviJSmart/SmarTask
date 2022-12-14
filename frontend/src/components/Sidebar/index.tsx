@@ -1,6 +1,5 @@
 import "./Sidebar.scss";
 import { ReactComponent as BoardSVG } from "../../assets/board.svg";
-import Logout from "../Logout";
 import HideMenu from "../HideMenu";
 import { useEffect, useState } from "react";
 import CreateBoard from "../CreateBoardButton";
@@ -8,23 +7,17 @@ import ShowMenu from "../ShowMenu";
 import BoardItem from "../BoardItem";
 import InputToggle from "../InputToggle";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { getBoards } from "../../store/reducers/boardsReducer";
+import { getAllBoards } from "../../store/reducers/allBoardsReducer";
 
-interface SideBarProps {
-  setSelected: React.Dispatch<
-    React.SetStateAction<{ id: string; name: string } | null>
-  >;
-  selected: { id: string; name: string } | null;
-}
 
 
 const Sidebar = () => {
   const { isHide } = useAppSelector((state) => state.menuToggle);
-  const {boards} = useAppSelector(state => state.dashboards)
+  const {boards} = useAppSelector(state => state.allBoards)
   const dispatch = useAppDispatch()
   
   useEffect(() => {
-    dispatch(getBoards())
+    dispatch(getAllBoards())
   }, [dispatch])
   return (
     <nav className={`Sidebar ${isHide ? "hide" : ""}`}>

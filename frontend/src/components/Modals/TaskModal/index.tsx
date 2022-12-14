@@ -4,12 +4,13 @@ import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import ModalWrapper from "../ModalWrapper";
 import "../Modal.scss";
 import "./TaskModal.scss";
+import { createTask } from "../../../store/reducers/allBoardsReducer";
+import { onToggleModal } from "../../../store/reducers/modalReducer";
 interface TaskType {
   sub_title: string;
   description?: string;
 }
 const TaskModal = () => {
-  const { selectedBoard } = useAppSelector((state) => state.dashboards);
   const dispatch = useAppDispatch();
   const { modalType } = useAppSelector((state) => state.modalToggle);
   const {
@@ -19,7 +20,8 @@ const TaskModal = () => {
     reset,
   } = useForm<TaskType>();
   const onSubmit: SubmitHandler<TaskType> = (data) => {
-    console.log(data);
+    dispatch(createTask(data))
+    dispatch(onToggleModal(""))
     reset();
   };
   return (

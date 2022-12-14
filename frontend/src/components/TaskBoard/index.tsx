@@ -5,14 +5,19 @@ import "./TaskBoard.scss";
 import { Column } from "../../types/board";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import EditModal from "../Modals/EditModal";
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { useAppDispatch } from "../../hooks/redux";
 import { onToggleModal } from "../../store/reducers/modalReducer";
+import { setSelectedColumn } from "../../store/reducers/allBoardsReducer";
 
 type columnTaskProp = { columnTask: Column; idx: number };
 const TaskBoard = ({ columnTask, idx }: columnTaskProp) => {
   const [isOpen, setIsOpen] = useState(false);
   const { taskProcess, color, tasks, id  } = columnTask;
   const dispatch = useAppDispatch()
+  const onClickHandle = () => {
+    dispatch(setSelectedColumn(id));
+    dispatch(onToggleModal('createTask'));
+  }
   return (
     <Draggable draggableId={id} index={idx}>
       {(provided) => (
@@ -34,7 +39,7 @@ const TaskBoard = ({ columnTask, idx }: columnTaskProp) => {
               <button onClick={() => setIsOpen(!isOpen)}>
                 <MoreSVG />
               </button>
-              {isOpen ? <EditModal columnId={id}/> : null}
+              {isOpen ? <EditModal id={id} setIsOpen={setIsOpen} type='column'/> : null}
             </div>
           </div>
           <Droppable droppableId={id} type="task">
@@ -52,7 +57,7 @@ const TaskBoard = ({ columnTask, idx }: columnTaskProp) => {
               </div>
             )}
           </Droppable>
-          <button className="TaskBoard__btn" onClick={() => dispatch(onToggleModal('createTask'))}>ADD TASK</button>
+          <button className="TaskBoard__btn" onClick={onClickHandle}>ADD TASK</button>
         </div>
       )}
     </Draggable>

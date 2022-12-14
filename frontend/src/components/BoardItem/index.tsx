@@ -1,20 +1,18 @@
-import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { setSelected } from "../../store/reducers/boardsReducer";
-import { getTaskColumns } from "../../store/reducers/columnReducer";
+import { setSelectedBoard } from "../../store/reducers/allBoardsReducer";
 import "./BoardItem.scss";
 interface BoardItemProps {
   id: string;
   title: string;
 }
 const BoardItem = ({ title, id }: BoardItemProps) => {
-  const { selectedBoard } = useAppSelector((state) => state.dashboards);
+  const { selectedBoard } = useAppSelector((state) => state.allBoards);
   const dispatch = useAppDispatch();
   const activeItem = selectedBoard?.id === id ? `active` : "";
 
   const onClickHandle = () => {
-    dispatch(setSelected({ id, title }));
-    dispatch(getTaskColumns(id));
+    dispatch(setSelectedBoard({ id, title }));
+    
   };
   return (
     <li className="BoardItem" onClick={onClickHandle}>

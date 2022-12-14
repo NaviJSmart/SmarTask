@@ -4,16 +4,16 @@ import { useAppSelector, useAppDispatch } from "../../hooks/redux";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import "./Dashboard.scss";
 import { OnDragEnd } from "../../utils/DragAndDrop";
-import { updateTaskCol } from "../../store/reducers/columnReducer";
 import CreateColumn from "../../components/CreateColumnButton";
 
 const Dashboard = () => {
   const { isHide } = useAppSelector((state) => state.menuToggle);
-  const { taskColumns } = useAppSelector((state) => state.tasksBoard);
-  const { selectedBoard } = useAppSelector((state) => state.dashboards);
+
+  const { selectedBoard, boards } = useAppSelector((state) => state.allBoards);
   const activeBoard = isHide ? "Dashboard Dashboard__full" : "Dashboard";
   const dispatch = useAppDispatch();
-
+  const [taskCol] = boards.filter((board) => board.id === selectedBoard?.id);
+  const taskColumns = taskCol?.columns || [];
   return (
     <div className={activeBoard}>
       <NavTitle />
@@ -22,8 +22,6 @@ const Dashboard = () => {
           OnDragEnd(res, {
             taskColumns,
             dispatch,
-            updateTaskCol,
-            boardId: selectedBoard!.id,
           })
         }
       >
