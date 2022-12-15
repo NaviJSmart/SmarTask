@@ -16,9 +16,9 @@ const BoardItem = ({ title, id }: BoardItemProps) => {
   };
   return (
     <li className="BoardItem" onClick={onClickHandle}>
-      <a href="#" className={activeItem}>
+      <button className={activeItem}>
         {title}
-      </a>
+      </button>
     </li>
   );
 };

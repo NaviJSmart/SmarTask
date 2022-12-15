@@ -15,32 +15,8 @@
   &__section {
     width: 100%;
     display: flex;
-    justify-content: end;
+    align-items: center;
     padding-left: 20px;
-    &_menu {
-      width: 3rem;
-
-      display: flex;
-      
-      position: relative;
-      button {
-        cursor: pointer;
-        background: transparent;
-        border: none;
-        svg {
-          box-sizing: unset;
-          border-radius: 50%;
-          transition: all 0.2s;
-          padding: 0.5rem;
-          stroke: var(--svg);
-          width: 30px;
-          height: 30px;
-          &:hover {
-            background: var(--bg);
-          }
-        }
-      }
-    }
   }
 }
 

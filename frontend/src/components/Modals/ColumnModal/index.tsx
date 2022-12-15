@@ -31,7 +31,7 @@ const ColumnModal = () => {
           <div className="ColumnModal Modal">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="Modal__field">
-                <label htmlFor="column-title">Board title</label>
+                <label htmlFor="column-title">Column title</label>
                 <input
                   {...register("taskProcess", {
                     required: "This field is riquered",

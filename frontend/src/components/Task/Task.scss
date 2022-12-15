@@ -40,22 +40,4 @@
     margin-top: 15px;
     font-size: $font-14;
   }
-  &__comments {
-    button {
-      background: transparent;
-      border: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      svg {
-        stroke: #9a9a9a;
-        width: 20px;
-        height: 20px;
-      }
-      p {
-        color: #9a9a9a;
-      }
-    }
-    margin-top: 10px;
-  }
 }

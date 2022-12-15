@@ -16,8 +16,9 @@ interface EditModalType {
 
 const EditModal = ({ id, type, setIsOpen }: EditModalType) => {
   const dispatch = useAppDispatch();
-  const wrapperRef = useRef<HTMLDivElement | null>(null)
-  useOutsideModal(wrapperRef, setIsOpen)
+  const modalRef = useRef<HTMLDivElement | null>(null)
+  
+  useOutsideModal(modalRef, setIsOpen)
   const onDeleteHandle = () => {
     if (type === "column") {
       dispatch(deleteColumn(id));
@@ -29,7 +30,7 @@ const EditModal = ({ id, type, setIsOpen }: EditModalType) => {
   };
   const onEditHandle = () => {};
   return (
-    <div ref={wrapperRef} className="EditModal">
+    <div ref={modalRef}  className="EditModal">
       <button>Edit</button>
       <button onClick={onDeleteHandle}>Delete</button>
     </div>

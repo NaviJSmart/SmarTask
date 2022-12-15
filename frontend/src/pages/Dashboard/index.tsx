@@ -1,4 +1,3 @@
-import NavTitle from "../../components/NavTitle";
 import TaskBoard from "../../components/TaskBoard";
 import { useAppSelector, useAppDispatch } from "../../hooks/redux";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
@@ -16,7 +15,6 @@ const Dashboard = () => {
   const taskColumns = taskCol?.columns || [];
   return (
     <div className={activeBoard}>
-      <NavTitle />
       <DragDropContext
         onDragEnd={(res) =>
           OnDragEnd(res, {

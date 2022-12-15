@@ -4,14 +4,18 @@
   position: relative;
   list-style: none;
   margin-bottom: 0.2rem;
-  a {
-    display: inline-block;
-    text-decoration: none;
+  button {
+    text-transform: capitalize;
+    text-align: left;
+   font-size: 1rem;
+    background: transparent;
+    border: none;
     color: $gray;
     padding: 0.5rem 0;
-    width: 14.25rem;
+    width: 12.25rem;
     word-break: break-all;
     transition: color 0.2s ease;
+    cursor: pointer;
     &::after {
       transition: all 0.2s;
       content: "";

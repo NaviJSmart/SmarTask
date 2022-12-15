@@ -3,8 +3,9 @@ import databoards from "../../data/data.json";
 import { BoardType } from "../../types/board";
 import { v4 as uuidv4 } from "uuid";
 import { randomHEXcolor } from "../../utils/randomColor";
+const data = databoards.boards.map((item) => item);
 const initialState: BoardType = {
-  boards: [],
+  boards: data || [],
   loading: false,
   error: null,
   selectedBoard: null,
@@ -22,7 +23,7 @@ const allBoardReducer = createSlice({
       state.selectedColumn = action.payload;
     },
     getAllBoards: (state) => {
-      state.boards = databoards.boards.map((item) => item);
+      
     },
     createBoard: (state, action) => {
       const newBoard = {

@@ -1,7 +1,5 @@
-import React from "react";
 import "./Task.scss";
 import { ReactComponent as Edit } from "../../assets/edit.svg";
-import { ReactComponent as Comments } from "../../assets/comments.svg";
 import { TaskType } from "../../types/board";
 import { Draggable } from "react-beautiful-dnd";
 const Task = ({ task, index }: { task: TaskType, index: number }) => {
@@ -19,12 +17,6 @@ const Task = ({ task, index }: { task: TaskType, index: number }) => {
         <p className="Task__description">
           {description}
         </p>
-        {/* <div className="Task__comments">
-          <button>
-            <Comments />
-            <p>32 comments</p>
-          </button>
-        </div> */}
       </div>
       )}
     
