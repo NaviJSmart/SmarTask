@@ -1,22 +1,23 @@
 .MoreButton {
+  width: 50px;
+  height: 50px;
   position: relative;
-  display: flex;
-  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s;
+  &:hover {
+    background: var(--bg);
+  }
   button {
     cursor: pointer;
     background: transparent;
     border: none;
     svg {
+      padding: 0.6rem;
       box-sizing: unset;
-      border-radius: 50%;
-      transition: all 0.2s;
-      padding: 0.5rem;
       stroke: var(--svg);
       width: 30px;
       height: 30px;
-      &:hover {
-        background: var(--bg);
-      }
     }
   }
 }

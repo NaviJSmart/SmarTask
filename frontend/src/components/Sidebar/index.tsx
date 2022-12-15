@@ -14,8 +14,6 @@ const Sidebar = () => {
   const { isHide } = useAppSelector((state) => state.menuToggle);
   const {boards} = useAppSelector(state => state.allBoards)
 
-  
-  
   return (
     <nav className={`Sidebar ${isHide ? "hide" : ""}`}>
       <div className="Sidebar__menu">

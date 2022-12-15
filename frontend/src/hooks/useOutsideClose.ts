@@ -6,12 +6,7 @@ export function useOutsideModal(
 ) {
   useEffect(() => {
     function handleClickOutside(event: any) {
-      if (
-        ref.current &&
-        !ref.current.contains(event.target)
-        
-      ) {
-        console.log(event.currentTarget);
+      if (ref.current && !ref.current.contains(event.target)) {
         setIsOpen(false);
       }
     }
