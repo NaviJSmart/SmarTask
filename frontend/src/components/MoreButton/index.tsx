@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ReactComponent as MoreSVG } from "../../assets/more.svg";
-import EditModal from "../Modals/EditModal";
+import EditModal from "../Modals/MoreModal";
 import "./MoreButton.scss";
 const MoreButton = ({ id, type }: { id: string; type: string }) => {
   const [isOpen, setIsOpen] = useState(false);

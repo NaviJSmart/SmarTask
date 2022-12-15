@@ -1,27 +1,48 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
-import { createBoard } from "../../../store/reducers/allBoardsReducer";
+import {
+  createBoard,
+  editBoard,
+} from "../../../store/reducers/allBoardsReducer";
 import { onToggleModal } from "../../../store/reducers/modalReducer";
 import ModalWrapper from "../ModalWrapper";
 import "./BoardModal.scss";
 import "../Modal.scss";
+import { useEffect } from "react";
 interface BoardTitleType {
   title: string;
 }
 const BoardModal = () => {
   const dispatch = useAppDispatch();
-  const { modalType } = useAppSelector((state) => state.modalToggle);
+  const { modalType, modalEdit } = useAppSelector((state) => state.modalToggle);
+  const { selectedBoard } = useAppSelector((state) => state.allBoards);
+
+  const data = modalEdit ? selectedBoard : "";
+  console.log(data);
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm<BoardTitleType>();
-  const onSubmit: SubmitHandler<BoardTitleType> = (data, e) => {
-    dispatch(createBoard(data));
+  useEffect(() => {
+    if (data && modalEdit) {
+      setValue("title", data.title);
+    } else if (!modalEdit) {
+      reset();
+    }
+  }, [data, modalEdit, reset, setValue]);
+  const onSubmit: SubmitHandler<BoardTitleType> = (entity) => {
+    if (modalEdit && data) {
+      dispatch(editBoard({ id: data.id, title: entity.title }));
+    } else {
+      dispatch(createBoard(entity));
+    }
     dispatch(onToggleModal(""));
-    reset();
+    reset()
   };
+
   return (
     <>
       {modalType === "createBoard" ? (
@@ -40,7 +61,9 @@ const BoardModal = () => {
                 />
                 {errors && <span>{errors.title?.message}</span>}
               </div>
-              <button type="submit">Add board</button>
+              <button type="submit">
+                {modalEdit ? "Edit Board" : "Add Board"}
+              </button>
             </form>
           </div>
         </ModalWrapper>

@@ -3,6 +3,7 @@ import databoards from "../../data/data.json";
 import { BoardType } from "../../types/board";
 import { v4 as uuidv4 } from "uuid";
 import { randomHEXcolor } from "../../utils/randomColor";
+import { stat } from "fs";
 const data = databoards.boards.map((item) => item);
 const initialState: BoardType = {
   boards: data || [],
@@ -22,9 +23,7 @@ const allBoardReducer = createSlice({
     setSelectedColumn: (state, action) => {
       state.selectedColumn = action.payload;
     },
-    getAllBoards: (state) => {
-      
-    },
+    getAllBoards: (state) => {},
     createBoard: (state, action) => {
       const newBoard = {
         id: uuidv4(),
@@ -34,7 +33,15 @@ const allBoardReducer = createSlice({
       state.boards = [...state.boards, newBoard];
       state.selectedBoard = newBoard;
     },
-    deleteBoard: (state,action) => {
+    editBoard: (state, action) => {
+      const existed = state.boards.find(
+        (board) => board.id === action.payload.id
+      );
+      if(existed) {
+        existed.title = action.payload.title
+      }
+    },
+    deleteBoard: (state, action) => {
       if (state.selectedBoard) {
         state.boards = state.boards.filter(
           (board) => board.id !== action.payload
@@ -106,6 +113,7 @@ export const {
   createTask,
   deleteColumn,
   deleteBoard,
+  editBoard
 } = allBoardReducer.actions;
 
 export default allBoardReducer.reducer;

@@ -1,16 +1,22 @@
-import { PayloadAction } from '@reduxjs/toolkit';
-import {createSlice} from '@reduxjs/toolkit';
+import { PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    modalType: ''
-}
+  modalType: "",
+  modalEdit: false,
+};
 
 const modalReducer = createSlice({
-    name: 'modal',
-    initialState,
-    reducers: {
-        onToggleModal: (state, action: PayloadAction<string>) =>{ state.modalType =  action.payload}
-     }
-})
-export const {onToggleModal} = modalReducer.actions
-export default modalReducer.reducer
+  name: "modal",
+  initialState,
+  reducers: {
+    onToggleModal: (state, action: PayloadAction<string>) => {
+      state.modalType = action.payload;
+    },
+    onModalEdit: (state, action: PayloadAction<boolean>) => {
+      state.modalEdit = action.payload;
+    },
+  },
+});
+export const { onToggleModal, onModalEdit } = modalReducer.actions;
+export default modalReducer.reducer;

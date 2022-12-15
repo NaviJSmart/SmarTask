@@ -1,19 +1,21 @@
 import React, { useRef } from "react";
-import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
+import { useAppDispatch } from "../../../hooks/redux";
 import { useOutsideModal } from "../../../hooks/useOutsideClose";
 import {
   deleteBoard,
   deleteColumn,
   setSelectedBoard,
 } from "../../../store/reducers/allBoardsReducer";
-import "./EditModal.scss";
-interface EditModalType {
+import { onModalEdit, onToggleModal } from "../../../store/reducers/modalReducer";
+import "./MoreModal.scss";
+interface MoreModalType {
   id: string;
   type: string;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const EditModal = ({ id, type, setIsOpen }: EditModalType) => {
+const MoreModal = ({ id, type, setIsOpen }: MoreModalType) => {
+  
   const dispatch = useAppDispatch();
   const modalRef = useRef<HTMLDivElement | null>(null);
 
@@ -27,13 +29,19 @@ const EditModal = ({ id, type, setIsOpen }: EditModalType) => {
     }
     setIsOpen(false);
   };
-  const onEditHandle = () => {};
+  const onEditHandle = () => {
+    dispatch(onModalEdit(true))
+    if (type === "board") {
+      dispatch(onToggleModal('createBoard'))
+    }
+    setIsOpen(false)
+  };
   return (
-    <div ref={modalRef} className="EditModal">
-      <button>Edit</button>
+    <div ref={modalRef} className="MoreModal">
+      <button onClick={onEditHandle}>Edit</button>
       <button onClick={onDeleteHandle}>Delete</button>
     </div>
   );
 };
 
-export default EditModal;
+export default MoreModal;

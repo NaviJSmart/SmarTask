@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useAppDispatch } from "../../hooks/redux";
-import { onToggleModal } from "../../store/reducers/modalReducer";
+import { onModalEdit, onToggleModal } from "../../store/reducers/modalReducer";
 import "./ModalWrapper.scss";
 const ModalWrapper = ({ children }: { children: JSX.Element|JSX.Element[] }) => {
   const dispatch = useAppDispatch();
@@ -8,6 +8,7 @@ const ModalWrapper = ({ children }: { children: JSX.Element|JSX.Element[] }) => 
   const onModalWrapper = (e: any) => {
     if (modalRef.current === e.target) {
       dispatch(onToggleModal(''));
+      dispatch(onModalEdit(false))
     }
   };
   return (
