@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import BoardModal from "./components/Modals/BoardModal";
 import ColumnModal from "./components/Modals/ColumnModal";
+import ConfirmModal from "./components/Modals/ConfirmModal";
 import TaskModal from "./components/Modals/TaskModal";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <BoardModal />
       <ColumnModal />
       <TaskModal />
+      <ConfirmModal />
     </div>
   );
 }

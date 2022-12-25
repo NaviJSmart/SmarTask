@@ -3,8 +3,9 @@ import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import {
   createBoard,
   editBoard,
+  setSelectedBoard,
 } from "../../../store/reducers/allBoardsReducer";
-import { onToggleModal } from "../../../store/reducers/modalReducer";
+import { onModalEdit, onToggleModal } from "../../../store/reducers/modalReducer";
 import ModalWrapper from "../ModalWrapper";
 import "./BoardModal.scss";
 import "../Modal.scss";
@@ -16,9 +17,8 @@ const BoardModal = () => {
   const dispatch = useAppDispatch();
   const { modalType, modalEdit } = useAppSelector((state) => state.modalToggle);
   const { selectedBoard } = useAppSelector((state) => state.allBoards);
-
+  
   const data = modalEdit ? selectedBoard : "";
-  console.log(data);
   const {
     register,
     handleSubmit,
@@ -36,16 +36,18 @@ const BoardModal = () => {
   const onSubmit: SubmitHandler<BoardTitleType> = (entity) => {
     if (modalEdit && data) {
       dispatch(editBoard({ id: data.id, title: entity.title }));
+      dispatch(setSelectedBoard({id: data.id, title: entity.title}))
     } else {
       dispatch(createBoard(entity));
     }
+    dispatch(onModalEdit(false))
     dispatch(onToggleModal(""));
     reset()
   };
 
   return (
     <>
-      {modalType === "createBoard" ? (
+      {modalType === "boardModal" ? (
         <ModalWrapper>
           <div className="BoardModal Modal">
             <form onSubmit={handleSubmit(onSubmit)}>

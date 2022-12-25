@@ -16,7 +16,7 @@ const BoardItem = ({ title, id }: BoardItemProps) => {
   };
   return (
     <li className="BoardItem" onClick={onClickHandle}>
-      <button className={activeItem}>
+      <button className={activeItem} disabled={!!activeItem}>
         {title}
       </button>
     </li>

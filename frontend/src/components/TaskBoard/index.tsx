@@ -13,7 +13,7 @@ const TaskBoard = ({ columnTask, idx }: columnTaskProp) => {
   const dispatch = useAppDispatch()
   const onClickHandle = () => {
     dispatch(setSelectedColumn(id));
-    dispatch(onToggleModal('createTask'));
+    dispatch(onToggleModal('taskModal'));
   }
   return (
     <Draggable draggableId={id} index={idx}>
@@ -43,7 +43,7 @@ const TaskBoard = ({ columnTask, idx }: columnTaskProp) => {
               >
                 {tasks &&
                   tasks.map((item, i) => (
-                    <Task key={item.id} task={item} index={i} />
+                    <Task key={item.id} task={item} index={i} columnId={id} />
                   ))}
                 {provided.placeholder}
               </div>

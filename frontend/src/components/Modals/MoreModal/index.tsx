@@ -1,12 +1,16 @@
 import React, { useRef } from "react";
-import { useAppDispatch } from "../../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { useOutsideModal } from "../../../hooks/useOutsideClose";
 import {
   deleteBoard,
   deleteColumn,
   setSelectedBoard,
+  setSelectedColumn,
 } from "../../../store/reducers/allBoardsReducer";
-import { onModalEdit, onToggleModal } from "../../../store/reducers/modalReducer";
+import {
+  onModalEdit,
+  onToggleModal,
+} from "../../../store/reducers/modalReducer";
 import "./MoreModal.scss";
 interface MoreModalType {
   id: string;
@@ -15,10 +19,8 @@ interface MoreModalType {
 }
 
 const MoreModal = ({ id, type, setIsOpen }: MoreModalType) => {
-  
   const dispatch = useAppDispatch();
   const modalRef = useRef<HTMLDivElement | null>(null);
-
   useOutsideModal(modalRef, setIsOpen);
   const onDeleteHandle = () => {
     if (type === "column") {
@@ -27,14 +29,18 @@ const MoreModal = ({ id, type, setIsOpen }: MoreModalType) => {
       dispatch(deleteBoard(id));
       dispatch(setSelectedBoard(null));
     }
+
     setIsOpen(false);
   };
   const onEditHandle = () => {
-    dispatch(onModalEdit(true))
+    dispatch(onModalEdit(true));
     if (type === "board") {
-      dispatch(onToggleModal('createBoard'))
+      dispatch(onToggleModal("boardModal"));
+    } else if (type === "column") {
+      dispatch(setSelectedColumn(id));
+      dispatch(onToggleModal("columnModal"));
     }
-    setIsOpen(false)
+    setIsOpen(false);
   };
   return (
     <div ref={modalRef} className="MoreModal">

@@ -1,0 +1,39 @@
+.ConfirmModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 400px;
+  min-height: 150px;
+  margin-bottom: 1rem;
+  background-color: var(--elements);
+  padding: 1rem;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  gap: 2rem;
+  h4 {
+    color: var(--color);
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    
+    gap: 1rem;
+    button {
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 1.5rem;
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      font-size: 0.9rem;
+      &:first-child {
+        color: #ffffff;
+        background-color: #ea5555;
+      }
+    }
+  }
+}

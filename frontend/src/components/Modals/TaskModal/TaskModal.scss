@@ -1,16 +1,23 @@
 @import "../../../styles/variables";
 .TaskModal {
-
   &__field {
     textarea {
-        background-color: var(--bg);
-       resize: none;
-       border-radius: 5px;
-       border: none;
-       color: var(--color);
-       padding: 5px;
-       font-size: 1rem;
-       min-height: 5rem ;
+      background-color: var(--bg);
+      resize: none;
+      border-radius: 5px;
+      border: none;
+      color: var(--color);
+      padding: 5px;
+      font-size: 1rem;
+      min-height: 5rem;
     }
   }
+  &__btn {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+  }
+}
+#btn_delete {
+  color: rgb(212, 22, 22) ;
 }

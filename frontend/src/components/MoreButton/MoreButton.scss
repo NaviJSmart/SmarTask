@@ -5,6 +5,7 @@
   cursor: pointer;
   border-radius: 50%;
   transition: all 0.2s;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
   &:hover {
     background: var(--bg);
   }

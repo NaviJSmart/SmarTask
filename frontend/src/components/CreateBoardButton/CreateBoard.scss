@@ -1,21 +1,21 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .CreateBoard {
-    text-align: center;
-    margin-top: $margin-medium;
-    button {
-      color: var(--btn-text);
-      background: transparent;
-      border: none;
-      font-size: $font-18;
-      cursor: pointer;
-      padding: $margin-tiny $margin-medium;
-      border-radius: 1rem;
-      transition: all 0.2s;
-      &:hover {
-        color: $white;
-        background-color: $blue;
-        opacity: .4;
-      }
+  text-align: center;
+  margin-top: $margin-medium;
+  button {
+    transition: all 0.2s ease;
+    color: var(--btn-text);
+    background: transparent;
+    border: none;
+    font-size: $font-18;
+    cursor: pointer;
+    padding: $margin-tiny $margin-medium;
+    border-radius: 1rem;
+
+    &:hover {
+      opacity: 0.8;
+      background-color: var(--bg);
     }
+  }
 }
