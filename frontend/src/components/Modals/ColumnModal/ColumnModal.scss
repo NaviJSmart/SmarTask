@@ -1,1 +1,8 @@
-
+#taskColor {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  &::-webkit-color-swatch {
+    border-radius: 5px;
+  }
+}

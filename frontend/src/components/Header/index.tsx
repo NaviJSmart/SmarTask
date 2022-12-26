@@ -15,6 +15,7 @@ const Header = (): JSX.Element => {
         <div className="Header__section">
           <NavTitle />
           {selectedBoard && <MoreButton id={selectedBoard.id} type="board" />}
+          
         </div>
       </div>
     </header>

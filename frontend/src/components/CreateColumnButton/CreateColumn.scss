@@ -16,13 +16,13 @@
       rgba(121, 132, 147, 0.2),
       rgba(130, 143, 163, 0.1),
       rgba(130, 143, 163, 0)
-    );
-    border: none;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    &:hover {
-      color: #2a85ff;
+      );
+      border: none;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      &:hover {
+        color: #2a85ff;
+      }
     }
-  }
 }

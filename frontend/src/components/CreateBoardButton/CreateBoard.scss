@@ -2,20 +2,21 @@
 
 .CreateBoard {
   text-align: center;
-  margin-top: $margin-medium;
+  border-radius: 1rem;
+  width: 90%;
+
+  transition: all 0.2s ease;
+  &:hover {
+    opacity: 0.8;
+    background-color: var(--bg);
+  }
   button {
-    transition: all 0.2s ease;
-    color: var(--btn-text);
+    color: #476ddd;
     background: transparent;
     border: none;
+    font-weight: 600;
     font-size: $font-18;
     cursor: pointer;
-    padding: $margin-tiny $margin-medium;
-    border-radius: 1rem;
-
-    &:hover {
-      opacity: 0.8;
-      background-color: var(--bg);
-    }
+    padding: $margin-small $margin-medium;
   }
 }

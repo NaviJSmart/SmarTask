@@ -4,6 +4,7 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import "./Dashboard.scss";
 import { OnDragEnd } from "../../utils/DragAndDrop";
 import CreateColumn from "../../components/CreateColumnButton";
+import CreateBoard from "../../components/CreateBoardButton";
 
 const Dashboard = () => {
   const { isHide } = useAppSelector((state) => state.menuToggle);
@@ -44,6 +45,11 @@ const Dashboard = () => {
           )}
         </Droppable>
       </DragDropContext>
+      {boards.length < 1 && <div className="Empty_board">
+        <p>There is no board. Do you want to create some ?</p>
+        <CreateBoard />
+        </div>}
+      
     </div>
   );
 };

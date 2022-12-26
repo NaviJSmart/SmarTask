@@ -12,7 +12,7 @@
     align-items: center;
   }
   &__title {
-    color: var(--subTitle);
+    color: var(--color);
     font-size: $font-16;
     font-weight: 500;
     word-break: break-all;
@@ -22,18 +22,19 @@
     border: none;
     display: flex;
     cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    &:hover {
+      
+      background-color: var(--bg);
+    }
     svg {
-      transition: all 0.3s;
       box-sizing: unset;
       fill: var(--svg);
       width: 25px;
       height: 25px;
       padding: 5px;
-      border-radius: 50%;
-      &:hover {
-        
-        background-color: var(--bg);
-      }
+      
     }
   }
   &__description {

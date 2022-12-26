@@ -5,7 +5,10 @@ import {
   editBoard,
   setSelectedBoard,
 } from "../../../store/reducers/allBoardsReducer";
-import { onModalEdit, onToggleModal } from "../../../store/reducers/modalReducer";
+import {
+  onModalEdit,
+  onToggleModal,
+} from "../../../store/reducers/modalReducer";
 import ModalWrapper from "../ModalWrapper";
 import "./BoardModal.scss";
 import "../Modal.scss";
@@ -15,9 +18,9 @@ interface BoardTitleType {
 }
 const BoardModal = () => {
   const dispatch = useAppDispatch();
-  const { modalType, modalEdit } = useAppSelector((state) => state.modalToggle);
+  const { modalEdit } = useAppSelector((state) => state.modalToggle);
   const { selectedBoard } = useAppSelector((state) => state.allBoards);
-  
+
   const data = modalEdit ? selectedBoard : "";
   const {
     register,
@@ -36,41 +39,37 @@ const BoardModal = () => {
   const onSubmit: SubmitHandler<BoardTitleType> = (entity) => {
     if (modalEdit && data) {
       dispatch(editBoard({ id: data.id, title: entity.title }));
-      dispatch(setSelectedBoard({id: data.id, title: entity.title}))
+      dispatch(setSelectedBoard({ id: data.id, title: entity.title }));
     } else {
       dispatch(createBoard(entity));
     }
-    dispatch(onModalEdit(false))
+    dispatch(onModalEdit(false));
     dispatch(onToggleModal(""));
-    reset()
+    reset();
   };
 
   return (
-    <>
-      {modalType === "boardModal" ? (
-        <ModalWrapper>
-          <div className="BoardModal Modal">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="Modal__field">
-                <label htmlFor="board-title">Board title</label>
-                <input
-                  {...register("title", {
-                    required: "This field is riquered",
-                    minLength: { value: 4, message: "Min length 4 charater" },
-                  })}
-                  type="text"
-                  id="board-title"
-                />
-                {errors && <span>{errors.title?.message}</span>}
-              </div>
-              <button type="submit">
-                {modalEdit ? "Edit Board" : "Add Board"}
-              </button>
-            </form>
+    <ModalWrapper>
+      <div className="BoardModal Modal">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="Modal__field">
+            <label htmlFor="board-title">Board title</label>
+            <input
+              {...register("title", {
+                required: "This field is riquered",
+                minLength: { value: 4, message: "Min length 4 charater" },
+              })}
+              type="text"
+              id="board-title"
+            />
+            {errors && <span>{errors.title?.message}</span>}
           </div>
-        </ModalWrapper>
-      ) : null}
-    </>
+          <button type="submit">
+            {modalEdit ? "Edit Board" : "Add Board"}
+          </button>
+        </form>
+      </div>
+    </ModalWrapper>
   );
 };
 

@@ -7,7 +7,7 @@ const CreateBoard = () => {
   const dispatch = useAppDispatch()
   return (
     <div className="CreateBoard">
-      <button onClick={() => dispatch(onToggleModal('boardModal'))}>+Create New Board</button>
+      <button onClick={() => dispatch(onToggleModal('boardModal'))}>Create New Board</button>
     </div>
   );
 };

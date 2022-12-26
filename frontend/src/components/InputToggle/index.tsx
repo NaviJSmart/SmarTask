@@ -9,14 +9,6 @@ const InputToggle = () => {
   const theme = useAppSelector((state) => state.colorTheme);
   const dispatch = useAppDispatch();
 
-  // function getChecked () {
-  //   if(localStorage.getItem('isChecked')) {
-  //     return JSON.parse(localStorage.getItem('isChecked') || '')
-  //   } else {
-  //     return false
-  //   }
-  // }
-
   React.useEffect(() => {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("theme", theme);

@@ -14,15 +14,17 @@
 
     align-items: center;
     button {
+      text-transform: uppercase;
       margin-top: 2rem;
       width: 100%;
       background: transparent;
-      border: 3px solid #f4f4f4;
-
+      border: 3px solid var(--bg);
+      border-radius: 1.5rem;
       padding: 10px;
       color: #2a85ff;
       cursor: pointer;
-      font-size: $font-16;
+      font-size: $font-14;
+      letter-spacing: 1.1px;
       font-weight: 600;
       transition: all 0.2s;
       &:hover {

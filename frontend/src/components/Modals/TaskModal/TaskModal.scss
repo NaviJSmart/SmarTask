@@ -21,5 +21,11 @@
   }
 }
 #btn_delete {
-  color: rgb(212, 22, 22) ;
+  background-color: var(--elemets) ;
+  color: rgb(255, 53, 53) ;
+  &:hover {
+    color: #f5dddd;
+
+  background-color: rgb(255, 53, 53) ;
+  }
 }

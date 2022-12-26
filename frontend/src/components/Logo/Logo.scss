@@ -1,24 +1,29 @@
 @import "../../styles/variables";
 .Logo {
   display: flex;
-  align-items: center;
   justify-content: center;
   position: relative;
   min-width: 16.875rem;
   border-right: 2px solid var(--borderLine);
   gap: 0.5rem;
-  img {
-    
-    width: 50px;
-    height: 50px;
-  }
-  a {
+  p {
+    position: relative;
     font-size: 1.4rem;
     text-decoration: none;
     color: var(--title);
+    
     letter-spacing: 1.2px;
     font-family: 'Audiowide', cursive;
     font-weight: 400;
-    // text-transform: uppercase;
+    
+    img {
+      top: 50%;
+      left: 0;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      z-index: -1;
+    }
   }
 }

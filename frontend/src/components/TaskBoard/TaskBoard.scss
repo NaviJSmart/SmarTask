@@ -27,7 +27,7 @@
     border-radius: 10px;
   }
   &__title {
-    color: var(--title);
+    color: var(--color);
     font-size: $font-19;
   }
   &__Task {
@@ -36,15 +36,16 @@
     min-height: 50px;
   }
   &__btn {
-    background: transparent;
-    border: 3px solid #f4f4f4;
+    background: var(--bg);
+    border: none;
     width: 100%;
     padding: 10px;
-    color: #2a85ff;
+    color: #398fff;
     cursor: pointer;
-    font-size: $font-16;
+    font-size: $font-14;
     font-weight: 600;
-    transition: all 0.2s;
+    border-radius: 1.5rem;
+    letter-spacing: 1px;
     &:hover {
       background: #2a85ff;
       color: $white;
