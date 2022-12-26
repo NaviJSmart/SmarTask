@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 
 const getTheme = () => {
@@ -17,7 +17,7 @@ export const themeReducer = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    setTheme: (state, action) => action.payload,
+    setTheme: (state, action: PayloadAction<string>) => action.payload,
   },
 })
 

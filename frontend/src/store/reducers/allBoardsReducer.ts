@@ -1,6 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import databoards from "../../data/data.json";
-import { BoardType } from "../../types/board";
+import {
+  BoardType,
+  Column,
+  PayloadBoard,
+  PayloadColumnEdit,
+  PayloadTask,
+} from "../../types/board";
 import { v4 as uuidv4 } from "uuid";
 import { randomHEXcolor } from "../../utils/randomColor";
 
@@ -19,13 +25,13 @@ const allBoardReducer = createSlice({
     setSelectedBoard: (state, action) => {
       state.selectedBoard = action.payload;
     },
-    setSelectedColumn: (state, action) => {
+    setSelectedColumn: (state, action: PayloadAction<string>) => {
       state.selectedColumn = action.payload;
     },
-    setSelectedTask: (state, action) => {
+    setSelectedTask: (state, action: PayloadAction<string>) => {
       state.selectedTask = action.payload;
     },
-    createBoard: (state, action) => {
+    createBoard: (state, action: PayloadAction<PayloadBoard>) => {
       const newBoard = {
         id: uuidv4(),
         title: action.payload.title,
@@ -34,7 +40,7 @@ const allBoardReducer = createSlice({
       state.boards = [...state.boards, newBoard];
       state.selectedBoard = newBoard;
     },
-    editBoard: (state, action) => {
+    editBoard: (state, action: PayloadAction<PayloadBoard>) => {
       const existed = state.boards.find(
         (board) => board.id === action.payload.id
       );
@@ -42,14 +48,14 @@ const allBoardReducer = createSlice({
         existed.title = action.payload.title;
       }
     },
-    deleteBoard: (state, action) => {
+    deleteBoard: (state, action: PayloadAction<string>) => {
       if (state.selectedBoard) {
         state.boards = state.boards.filter(
           (board) => board.id !== action.payload
         );
       }
     },
-    createColumn: (state, action) => {
+    createColumn: (state, action: PayloadAction<{ taskProcess: string }>) => {
       const newColumn = {
         id: uuidv4(),
         taskProcess: action.payload.taskProcess,
@@ -63,7 +69,7 @@ const allBoardReducer = createSlice({
         existed.columns.push(newColumn);
       }
     },
-    updateColumns: (state, action) => {
+    updateColumns: (state, action: PayloadAction<Column[]>) => {
       const existed = state.boards.find(
         (board) => board.id === state.selectedBoard?.id
       );
@@ -71,7 +77,7 @@ const allBoardReducer = createSlice({
         existed.columns = action.payload;
       }
     },
-    editColumn: (state, action) => {
+    editColumn: (state, action: PayloadAction<PayloadColumnEdit>) => {
       const existed = state.boards
         .find((board) => board.id === action.payload.boardId)
         ?.columns.find((col) => col.id === action.payload.columnId);
@@ -80,7 +86,7 @@ const allBoardReducer = createSlice({
         existed.color = action.payload.color;
       }
     },
-    deleteColumn: (state, action) => {
+    deleteColumn: (state, action: PayloadAction<string>) => {
       const existed = state.boards.find(
         (board) => board.id === state.selectedBoard?.id
       );
@@ -90,7 +96,7 @@ const allBoardReducer = createSlice({
         );
       }
     },
-    createTask: (state, action) => {
+    createTask: (state, action: PayloadAction<{sub_title: string, description: string}>) => {
       const newTask = {
         id: uuidv4(),
         sub_title: action.payload.sub_title,
@@ -103,7 +109,7 @@ const allBoardReducer = createSlice({
         existed.tasks.push(newTask);
       }
     },
-    editTask: (state, action) => {
+    editTask: (state, action: PayloadAction<PayloadTask>) => {
       const existed = state.boards
         .find((board) => board.id === action.payload.boardId)
         ?.columns.find((column) => column.id === action.payload.columnId)
