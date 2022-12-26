@@ -1,12 +1,12 @@
 @import "../../styles/variables";
 .Modal {
-  width: 25rem;
-  min-height: 20rem;
+  width: 23rem;
+  min-height: 15rem;
   background-color: var(--elements);
   border-radius: 15px;
   display: flex;
   align-items: center;
-  padding: 25px 40px;
+  padding: 20px 20px;
   form {
     width: 100%;
     display: flex;
@@ -43,8 +43,9 @@
       margin-bottom: 0.5rem;
     }
     input {
+      font-size: 0.9rem;
       width: 100%;
-      padding: 0.4rem 1rem;
+      padding: 0.4rem 0.5rem;
       background-color: var(--bg);
       border: none;
       border-radius: 5px;

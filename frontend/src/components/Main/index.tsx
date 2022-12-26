@@ -1,6 +1,7 @@
 
 import Dashboard from "../../pages/Dashboard";
 import Sidebar from "../Sidebar";
+
 import './Main.scss'
 const Main = () => {
   

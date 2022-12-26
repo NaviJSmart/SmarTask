@@ -5,6 +5,7 @@ import { Draggable } from "react-beautiful-dnd";
 import { useAppDispatch } from "../../hooks/redux";
 import { setSelectedColumn, setSelectedTask } from "../../store/reducers/allBoardsReducer";
 import { onModalEdit, onToggleModal } from "../../store/reducers/modalReducer";
+import { trancateStr } from "../../utils/trancateStr";
 interface TaskTypeProps  {
   task: TaskType,
   index: number,
@@ -30,7 +31,7 @@ const Task = ({ task, index, columnId }: TaskTypeProps) => {
           </button>
         </div>
         <p className="Task__description">
-          {description}
+          {trancateStr(description, 160, 160) }
         </p>
       </div>
       )}

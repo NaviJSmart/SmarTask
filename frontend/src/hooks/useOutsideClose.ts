@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import React, { RefObject, useEffect } from "react";
 
 export function useOutsideModal(
-  ref: any,
+  ref: RefObject<HTMLDivElement>,
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 ) {
   useEffect(() => {
-    function handleClickOutside(event: any) {
-      if (ref.current && !ref.current.contains(event.target)) {
+    function handleClickOutside(event: MouseEvent) {
+      if (ref.current && !ref.current?.contains(event.target as Node)) {
         setIsOpen(false);
       }
     }

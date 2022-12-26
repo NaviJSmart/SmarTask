@@ -5,7 +5,7 @@ import "./ModalWrapper.scss";
 const ModalWrapper = ({ children }: { children: JSX.Element|JSX.Element[] }) => {
   const dispatch = useAppDispatch();
   const modalRef = useRef<HTMLDivElement | null>(null);
-  const onModalWrapper = (e: any) => {
+  const onModalWrapper = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (modalRef.current === e.target) {
       dispatch(onToggleModal(''));
       dispatch(onModalEdit(false))
@@ -14,7 +14,7 @@ const ModalWrapper = ({ children }: { children: JSX.Element|JSX.Element[] }) => 
   return (
     <div
       className="ModalWrapper"
-      onClick={(e: any) => onModalWrapper(e)}
+      onClick={(e) => onModalWrapper(e)}
       ref={modalRef}
     >
       {children}

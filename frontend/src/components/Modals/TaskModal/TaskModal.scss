@@ -2,14 +2,16 @@
 .TaskModal {
   &__field {
     textarea {
+      font-family: "Inter", sans-serif;
       background-color: var(--bg);
       resize: none;
       border-radius: 5px;
       border: none;
       color: var(--color);
       padding: 5px;
-      font-size: 1rem;
-      min-height: 5rem;
+      font-size: 0.9rem;
+      font-weight: 400;
+      min-height: 10rem;
     }
   }
   &__btn {

@@ -1,7 +1,8 @@
+@import '../../../styles/variables';
 .ConfirmModal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  @include tablet {
+    min-width: 360px;
+  }
   transform: translate(-50%, -50%);
   min-width: 400px;
   min-height: 150px;
@@ -11,7 +12,7 @@
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  
+
   justify-content: center;
   gap: 2rem;
   h4 {
@@ -20,7 +21,7 @@
   &__btn {
     display: flex;
     align-items: center;
-    
+
     gap: 1rem;
     button {
       border: none;
@@ -36,4 +37,9 @@
       }
     }
   }
+}
+
+.confirm-box {
+  left: 50%;
+  top: 50%;
 }
