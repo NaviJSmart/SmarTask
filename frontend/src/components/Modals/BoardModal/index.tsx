@@ -1,11 +1,13 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import {
+  allBoardsSelector,
   createBoard,
   editBoard,
   setSelectedBoard,
 } from "../../../store/reducers/allBoardsReducer";
 import {
+  modalSelector,
   onModalEdit,
   onToggleModal,
 } from "../../../store/reducers/modalReducer";
@@ -18,8 +20,8 @@ interface BoardTitleType {
 }
 const BoardModal = () => {
   const dispatch = useAppDispatch();
-  const { modalEdit } = useAppSelector((state) => state.modalToggle);
-  const { selectedBoard } = useAppSelector((state) => state.allBoards);
+  const { modalEdit } = useAppSelector(modalSelector);
+  const { selectedBoard } = useAppSelector(allBoardsSelector);
 
   const data = modalEdit ? selectedBoard : "";
   const {
@@ -28,7 +30,7 @@ const BoardModal = () => {
     formState: { errors },
     reset,
     setValue,
-  } = useForm<BoardTitleType>();
+  } = useForm<BoardTitleType>({ mode: "onChange" });
   useEffect(() => {
     if (data && modalEdit) {
       setValue("title", data.title);
@@ -62,7 +64,9 @@ const BoardModal = () => {
               type="text"
               id="board-title"
             />
-            {errors && <span>{errors.title?.message}</span>}
+            <div className="Modal__field_error">
+              {errors && <span>{errors.title?.message}</span>}
+            </div>
           </div>
           <button type="submit">
             {modalEdit ? "Edit Board" : "Add Board"}

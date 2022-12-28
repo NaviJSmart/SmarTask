@@ -5,17 +5,14 @@
   position: relative;
   min-width: 16.875rem;
   border-right: 2px solid var(--borderLine);
-  gap: 0.5rem;
+  height: 100%;
   p {
     position: relative;
     font-size: 1.4rem;
-    text-decoration: none;
     color: var(--title);
-    
     letter-spacing: 1.2px;
     font-family: 'Audiowide', cursive;
     font-weight: 400;
-    
     img {
       top: 50%;
       left: 0;

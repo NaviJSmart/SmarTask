@@ -1,6 +1,7 @@
 @import "../../styles/variables";
 
 .Header {
+  position: relative;
   background-color: var(--elements);
   height: 4rem;
   box-shadow: 0 1px 10px 0px var(--box-shadow);
@@ -18,14 +19,25 @@
     align-items: center;
     padding-left: 20px;
   }
+  .logo_mob {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
 }
 
 .Header {
   @include tablet {
+    .logo_mob {
+      display: block;
+    }
   }
   @include tablet {
     &__logo {
       display: none;
     }
+    
   }
 }

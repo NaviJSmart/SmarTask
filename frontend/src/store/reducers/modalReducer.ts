@@ -1,3 +1,4 @@
+import { RootState } from './../store';
 import { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -20,3 +21,6 @@ const modalReducer = createSlice({
 });
 export const { onToggleModal, onModalEdit } = modalReducer.actions;
 export default modalReducer.reducer;
+
+
+export const modalSelector = (state: RootState) => state.modalToggle

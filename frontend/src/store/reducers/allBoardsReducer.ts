@@ -9,6 +9,7 @@ import {
 } from "../../types/board";
 import { v4 as uuidv4 } from "uuid";
 import { randomHEXcolor } from "../../utils/randomColor";
+import { RootState } from "../store";
 
 const data = databoards.boards.map((item) => item);
 const initialState: BoardType = {
@@ -148,4 +149,6 @@ export const {
   deleteTask,
 } = allBoardReducer.actions;
 
+
+export const allBoardsSelector = (state: RootState) => state.allBoards
 export default allBoardReducer.reducer;

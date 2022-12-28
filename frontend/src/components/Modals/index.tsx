@@ -1,10 +1,11 @@
 import { useAppSelector } from "../../hooks/redux";
+import { modalSelector } from "../../store/reducers/modalReducer";
 import BoardModal from "./BoardModal";
 import ColumnModal from "./ColumnModal";
 import TaskModal from "./TaskModal";
 
 const Modal = () => {
-  const { modalType } = useAppSelector((state) => state.modalToggle);
+  const { modalType } = useAppSelector(modalSelector);
   return (
     <>
       {modalType === "columnModal" ? <ColumnModal /> : null}

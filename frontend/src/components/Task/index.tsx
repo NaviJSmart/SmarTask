@@ -31,7 +31,7 @@ const Task = ({ task, index, columnId }: TaskTypeProps) => {
           </button>
         </div>
         <p className="Task__description">
-          {trancateStr(description, 160, 160) }
+          {trancateStr(description, 155, 155) }
         </p>
       </div>
       )}

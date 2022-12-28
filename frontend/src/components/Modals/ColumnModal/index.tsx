@@ -1,12 +1,14 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import {
+  modalSelector,
   onModalEdit,
   onToggleModal,
 } from "../../../store/reducers/modalReducer";
 import "../Modal.scss";
 import "./ColumnModal.scss";
 import {
+  allBoardsSelector,
   createColumn,
   editColumn,
 } from "../../../store/reducers/allBoardsReducer";
@@ -18,10 +20,9 @@ interface ColumnTitleType {
 }
 const ColumnModal = () => {
   const dispatch = useAppDispatch();
-  const { modalEdit } = useAppSelector((state) => state.modalToggle);
-  const { selectedBoard, selectedColumn, boards } = useAppSelector(
-    (state) => state.allBoards
-  );
+  const { modalEdit } = useAppSelector(modalSelector);
+  const { selectedBoard, selectedColumn, boards } =
+    useAppSelector(allBoardsSelector);
   const column = boards
     .find((board) => board.id === selectedBoard?.id)
     ?.columns.find((col) => col.id === selectedColumn);
@@ -32,7 +33,7 @@ const ColumnModal = () => {
     formState: { errors },
     reset,
     setValue,
-  } = useForm<ColumnTitleType>();
+  } = useForm<ColumnTitleType>({ mode: "onChange" });
   const onSubmit: SubmitHandler<ColumnTitleType> = (data) => {
     if (modalEdit) {
       dispatch(
@@ -77,7 +78,9 @@ const ColumnModal = () => {
               type="text"
               id="column-title"
             />
-            {errors && <span></span>}
+            <div className="Modal__field_error">
+              {errors && <span>{errors.taskProcess?.message}</span>}
+            </div>
           </div>
 
           <button type="submit">

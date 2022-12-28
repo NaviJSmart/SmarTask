@@ -6,10 +6,11 @@ import ShowMenu from "../ShowMenu";
 import BoardItem from "../BoardItem";
 import InputToggle from "../InputToggle";
 import { useAppSelector } from "../../hooks/redux";
+import { allBoardsSelector } from "../../store/reducers/allBoardsReducer";
 
 const Sidebar = () => {
   const { isHide } = useAppSelector((state) => state.menuToggle);
-  const { boards } = useAppSelector((state) => state.allBoards);
+  const { boards } = useAppSelector(allBoardsSelector);
 
   return (
     <nav className={`Sidebar ${isHide ? "hide" : ""}`}>

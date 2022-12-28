@@ -1,11 +1,12 @@
 import { useAppSelector } from "../../hooks/redux";
+import { allBoardsSelector } from "../../store/reducers/allBoardsReducer";
 import Logo from "../Logo";
 import MoreButton from "../MoreButton";
 import NavTitle from "../NavTitle";
 import "./Header.scss";
 
 const Header = (): JSX.Element => {
-  const { selectedBoard } = useAppSelector((state) => state.allBoards);
+  const { selectedBoard } = useAppSelector(allBoardsSelector);
   return (
     <header className="Header">
       <div className="Header__container">
