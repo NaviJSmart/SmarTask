@@ -94,7 +94,8 @@ const TaskModal = () => {
               {...register("sub_title", {
                 required: "This field is riquered",
                 minLength: { value: 4, message: "Min length 4 charater" },
-                maxLength: {value: 50, message: "Max length 50 character"}
+                maxLength: { value: 50, message: "Max length 50 character" },
+                validate: (value) => !!value.trim(),
               })}
               type="text"
               id="title"
@@ -108,7 +109,7 @@ const TaskModal = () => {
             <textarea
               {...register("description", {
                 minLength: { value: 6, message: "Min length 6 charater" },
-                maxLength: {value: 500, message: "Max length 500 character"}
+                maxLength: { value: 500, message: "Max length 500 character" },
               })}
               id="descr"
             ></textarea>

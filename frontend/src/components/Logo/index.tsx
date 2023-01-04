@@ -4,8 +4,10 @@ import "./Logo.scss";
 const Logo = () => {
   return (
     <h1 className="Logo">
-      
-      <p ><img src={LogoPNG} alt="logo" />Smartask</p>
+      <p>
+        <img src={LogoPNG} alt="logo" />
+        Smartask
+      </p>
     </h1>
   );
 };

@@ -8,7 +8,7 @@
   height: 100%;
   p {
     position: relative;
-    font-size: 1.4rem;
+    font-size: 2rem;
     color: var(--title);
     letter-spacing: 1.2px;
     font-family: 'Audiowide', cursive;
@@ -18,8 +18,8 @@
       left: 0;
       transform: translate(-50%, -50%);
       position: absolute;
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       z-index: -1;
     }
   }

@@ -74,6 +74,7 @@ const ColumnModal = () => {
               {...register("taskProcess", {
                 required: "This field is riquered",
                 minLength: { value: 4, message: "Min length 4 charater" },
+                validate: (value) => !!value.trim(),
               })}
               type="text"
               id="column-title"

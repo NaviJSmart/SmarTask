@@ -60,6 +60,7 @@ const BoardModal = () => {
               {...register("title", {
                 required: "This field is riquered",
                 minLength: { value: 4, message: "Min length 4 charater" },
+                validate: (value) => !!value.trim(),
               })}
               type="text"
               id="board-title"
